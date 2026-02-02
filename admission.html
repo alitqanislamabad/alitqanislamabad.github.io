@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آن لائن داخلہ فارم برائے الاتقان اسلام آباد</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jameel+Noori+Nastaleeq&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Jameel Noori Nastaleeq', serif;
+            background: #f5f5f5;
+            direction: rtl;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        form {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.15);
+            max-width: 700px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin: 15px 0 8px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: 'Jameel Noori Nastaleeq', serif;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .skills label {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 0;
+            font-weight: normal;
+            font-size: 16px;
+            white-space: nowrap;
+        }
+        .skills label input {
+            margin-left: 5px;
+            margin-right: 0;
+            width: auto;
+        }
+        .submit-btn {
+            position: relative;
+            background: #008080;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Jameel Noori Nastaleeq', serif;
+            margin-top: 15px;
+        }
+        .submit-btn:hover {
+            background: #006666;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+        }
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        .submit-btn:disabled {
+            background: #7fb3b3;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .spinner {
+            width: 22px;
+            height: 22px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        #submittedMessage {
+            display: none;
+            text-align: center;
+            padding: 30px 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 20px auto;
+        }
+        .success-icon {
+            font-size: 60px;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+        .success-text {
+            font-size: 24px;
+            color: #28a745;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .success-subtext {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .form-heading {
+            text-align: center;
+            color: #008080;
+            margin-bottom: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #008080;
+        }
+        .required {
+            color: red;
+            margin-right: 3px;
+        }
+        .fee-description {
+            background-color: #f9f9f9;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border-right: 3px solid #008080;
+        }
+        .warning-note {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 16px;
+            text-align: center;
+        }
+        .photo-preview-container {
+            width: 200px;
+            height: 150px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            display: none;
+            position: relative;
+        }
+        .photo-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #f9f9f9;
+        }
+        .photo-upload-box {
+            border: 2px dashed #008080;
+            border-radius: 8px;
+            height: 150px;
+            width: 200px;
+            padding: 15px;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .photo-upload-box:hover {
+            background-color: #f0f0f0;
+        }
+        .photo-upload-box p {
+            margin: 0;
+            font-size: 16px;
+            color: #008080;
+        }
+        .photo-upload-icon {
+            font-size: 40px;
+            color: #008080;
+            margin-bottom: -4px;
+            margin-top: 25px;
+        }
+        
+        /* نئی کلاسیں - دو کالم والے لی آؤٹ کے لئے */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .photo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .photo-label {
+            margin-top: 0;
+        }
+        
+        /* تصویر تبدیل کرنے کا بٹن */
+        .change-photo-btn {
+            background-color: #008080;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-family: 'Jameel Noori Nastaleeq', serif;
+            display: none;
+            transition: all 0.3s ease;
+        }
+        .change-photo-btn:hover {
+            background-color: #006666;
+        }
+
+        /* ✅ موبائل کے لئے اضافی سیٹنگ */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            form {
+                padding: 15px;
+            }
+            label {
+                font-size: 16px;
+            }
+            input, select, textarea {
+                font-size: 14px;
+                padding: 8px;
+            }
+            .skills {
+                grid-template-columns: 1fr 1fr;
+            }
+            .form-heading {
+                font-size: 22px;
+            }
+            .success-icon {
+                font-size: 50px;
+            }
+            .success-text {
+                font-size: 20px;
+            }
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="admissionForm">
+        <div class="form-heading">آن لائن داخلہ فارم برائے الاتقان اسلام آباد</div>
+        
+        <!-- تصویر کا سیکشن - سب سے اوپر سنٹر میں -->
+        <div class="photo-section">
+            <label class="photo-label"> <span class="required">*</span></label>
+            <div class="photo-upload-box" id="photoUploadBox">
+                <div class="photo-upload-icon">📷</div>
+                <p>تصویر اپلوڈ کریں</p>
+            </div>
+            <input type="file" name="تصویر" accept="image/*" required style="display: none;" id="photoInput">
+            <div class="photo-preview-container" id="photoPreviewContainer">
+                <img id="photoPreview" class="photo-preview" src="#" alt="تصویر کا پیش نظارہ">
+            </div>
+            <button type="button" class="change-photo-btn" id="changePhotoBtn">تصویر تبدیل کریں</button>
+        </div>
+        
+        <!-- نام اور ولدیت - ایک ہی رو میں -->
+        <div class="two-column">
+            <div>
+                <label>نام<span class="required">*</span></label>
+                <input type="text" name="نام" required>
+            </div>
+            <div>
+                <label>ولدیت<span class="required">*</span></label>
+                <input type="text" name="ولدیت" required>
+            </div>
+        </div>
+        
+        <!-- شناختی کارڈ نمبر اور فون نمبر - ایک ہی رو میں -->
+        <div class="two-column">
+            <div>
+                <label>شناختی کارڈ نمبر<span class="required">*</span></label>
+                <input type="text" name="شناختی_کارڈ_نمبر" required>
+            </div>
+            <div>
+                <label>واٹساپ نمبر<span class="required">*</span></label>
+                <input type="text" name="فون_نمبر" required>
+            </div>
+        </div>
+        
+        <label>ایڈریس<span class="required">*</span></label>
+        <input type="text" name="ایڈریس" required>
+        
+        <!-- مطلوبہ درجہ اور حاصل کردہ نمبرات - ایک ہی رو میں -->
+        <div class="two-column">
+            <div>
+                <label>مطلوبہ درجہ<span class="required">*</span></label>
+                <select name="مطلوبہ_درجہ" required>
+                    <option value="">منتخب کریں</option>
+                    <option value="تخصص فی الافتاء">تخصص فی الافتاء</option>
+                    <option value="تخصص فی اللغۃ العربیۃ">تخصص فی اللغۃ العربیۃ</option>
+                </select>
+            </div>
+            <div>
+                <label>دورہ حدیث میں حاصل کردہ نمبرات<span class="required">*</span></label>
+                <input type="text" name="دورہ_حدیث_نمبرات" required>
+            </div>
+        </div>
+        
+        <label>دیگر مہارات:</label>
+        <div class="skills">
+            <label><input type="checkbox" name="دیگر_مہارات" value="MS Word"> MS Word</label>
+            <label><input type="checkbox" name="دیگر_مہارات" value="PowerPoint"> PowerPoint</label>
+            <label><input type="checkbox" name="دیگر_مہارات" value="Printer Settings"> Printer Settings</label>
+            <label><input type="checkbox" name="دیگر_مہارات" value="Electricity"> Electricity</label>
+            <label><input type="checkbox" name="دیگر_مہارات" value="Cooking"> Cooking</label>
+            <label><input type="checkbox" name="دیگر_مہارات" value="تلاوت"> تلاوت</label>
+            <label><input type="checkbox" name="دیگر_مہارات" value="نعت"> نعت</label>
+            <label><input type="checkbox" name="دیگر_مہارات" value="تقریر"> تقریر</label>
+            <label><input type="checkbox" name="دیگر_مہارات" value="IT"> IT</label>
+        </div>
+        
+        <!-- فیس رسید اور کشف الدرجات - ایک ہی رو میں -->
+        <div class="two-column">
+            <div>
+                <label>داخلہ فارم فیس کی رسید<span class="required">*</span></label>
+                <div class="fee-description">
+                    داخلہ فارم کی فیس 200 روپے ہے۔ براہ کرم  ارسال کردہ رقم کی تصویر اپلوڈ کریں۔ <br> (ایزی پیسہ اکاؤنٹ:PK55TMFB0000000034125014 )
+                </div>
+                <input type="file" name="فیس_رسید" accept="image/*" required>
+            </div>
+            <div>
+                <label>دورہ حدیث کے کشف الدرجات کی فائل اپلوڈ<span class="required">*</span></label>
+                <input type="file" id="file" name="کشف_الدرجات" required>
+            </div>
+        </div>
+        
+        <div class="warning-note">
+            نوٹ: صرف ممتاز فضلائے کرام یہ فارم جمع کروائیں، میرٹ پر نہ آنے کی صورت میں ادارہ ذمہ دار نہیں ہوگا۔
+        </div>
+        
+        <button type="submit" class="submit-btn" id="submitBtn">
+            <span id="btnText">فارم جمع کریں</span>
+            <div id="btnSpinner" class="spinner" style="display: none;"></div>
+        </button>
+    </form>
+    
+    <div id="submittedMessage">
+        <div class="success-icon">✓</div>
+        <div class="success-text">
+            فارم کامیابی سے جمع ہو گیا ہے،داخلہ امتحان کی تاریخ کا بعد میں اعلان کردیا جائے گا۔
+            <br>    
+          <span style="color: blue;">
+  درج ذیل لنک کے ذریعہ ادارے کا گروپ جوائن کریں، امتحان سے متعلق جملہ معلومات اسی گروپ میں فراہم کی جائیں گی۔
+  <br><br>
+
+<a href="https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u"
+   target="_blank"
+   style="color: red; font-size: 12px;">
+  https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u
+</a>
+
+
+  <br><br>
+
+  <a >
+    <img src="https://static.wixstatic.com/media/2cd943_33c728c07ba04283a65eac05095363a9~mv2.jpeg" 
+         alt="WhatsApp Group QR Code"
+         style="width: 180px; height: auto; border: 1px solid #ccc;">
+  </a>
+</span>
+
+        </div>
+        <div class="success-subtext">
+            <!-- یہاں آپ اپنی سب ٹیکسٹ لکھ سکتے ہیں -->
+        </div>
+    </div>
+
+    <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbySry3thxZebmmYA_DobjmV-jAWFgkZ0rQroNpC-nh1j5tN2aR2cFAfaIQOoYYYvyyF/exec"; // Google Apps Script Web App URL
+    const form = document.getElementById('admissionForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const btnSpinner = document.getElementById('btnSpinner');
+    const submittedMessage = document.getElementById('submittedMessage');
+    const photoInput = document.getElementById('photoInput');
+    const photoUploadBox = document.getElementById('photoUploadBox');
+    const photoPreview = document.getElementById('photoPreview');
+    const photoPreviewContainer = document.getElementById('photoPreviewContainer');
+    const changePhotoBtn = document.getElementById('changePhotoBtn');
+
+    // تصویر اپلوڈ باکس پر کلک
+    photoUploadBox.addEventListener('click', function() {
+        photoInput.click();
+    });
+
+    // تصویر تبدیل کریں بٹن پر کلک
+    changePhotoBtn.addEventListener('click', function() {
+        photoInput.click();
+    });
+
+    // تصویر کا پیش نظارہ
+    photoInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                photoPreview.src = e.target.result;
+                photoPreviewContainer.style.display = 'block';
+                photoUploadBox.style.display = 'none';
+                changePhotoBtn.style.display = 'block';
+            }
+            reader.readAsDataURL(file);
+        } else {
+            photoPreviewContainer.style.display = 'none';
+            photoUploadBox.style.display = 'block';
+            changePhotoBtn.style.display = 'none';
+        }
+    });
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        submitBtn.disabled = true;
+        btnText.textContent = 'جمع کر رہا ہے...';
+        btnSpinner.style.display = 'block';
+
+        const feeReceiptInput = document.querySelector('input[name="فیس_رسید"]');
+        const kashfInput = document.getElementById('file');
+        const photoFile = photoInput.files[0];
+        const feeReceiptFile = feeReceiptInput.files[0];
+        const kashfFile = kashfInput.files[0];
+
+        if (!photoFile || !feeReceiptFile || !kashfFile) {
+            alert('براہ کرم تمام ضروری فائلیں اپلوڈ کریں');
+            submitBtn.disabled = false;
+            btnText.textContent = 'فارم جمع کریں';
+            btnSpinner.style.display = 'none';
+            return;
+        }
+
+        // FileReader ترتیب
+        const readerPhoto = new FileReader();
+        const readerFee = new FileReader();
+        const readerKashf = new FileReader();
+
+        readerFee.onload = function(event) {
+            const feeData = event.target.result.split(',')[1];
+            readerKashf.onload = function(event) {
+                const kashfData = event.target.result.split(',')[1];
+                readerPhoto.onload = function(event) {
+                    const photoData = event.target.result.split(',')[1];
+
+                    const formData = new FormData(form);
+                    formData.append("fee_receipt_data", feeData);
+                    formData.append("fee_receipt_name", feeReceiptFile.name);
+                    formData.append("fee_receipt_type", feeReceiptFile.type);
+
+                    formData.append("file_data", kashfData);
+                    formData.append("file_name", kashfFile.name);
+                    formData.append("file_type", kashfFile.type);
+
+                    formData.append("photo_data", photoData);
+                    formData.append("photo_name", photoFile.name);
+                    formData.append("photo_type", photoFile.type);
+
+                    fetch(scriptURL, { method: 'POST', body: formData })
+                    .then(res => res.json())
+                    .then(response => {
+                        if(response.success){
+                            form.style.display = "none";
+                            submittedMessage.style.display = "block";
+                            submittedMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        } else {
+                            throw new Error(response.message);
+                        }
+                    })
+                    .catch(err => {
+                        alert("غلطی: " + err.message);
+                        submitBtn.disabled = false;
+                        btnText.textContent = 'فارم جمع کریں';
+                        btnSpinner.style.display = 'none';
+                    });
+
+                };
+                readerPhoto.readAsDataURL(photoFile);
+            };
+            readerKashf.readAsDataURL(kashfFile);
+        };
+        readerFee.readAsDataURL(feeReceiptFile);
+    });
+    </script>
+</body>
+</html>
