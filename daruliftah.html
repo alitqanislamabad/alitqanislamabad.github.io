@@ -36,8 +36,11 @@
         body {
             margin:0;
             font-family: 'Jameel Noori Nastaleeq', serif;
-            background:#f7fbff;
-            color:#0b2545;
+            background:#0059ffde;
+            background-image:
+                linear-gradient(rgba(3,100,170,0.40), rgba(3,100,170,0.32)),
+                url('dI.jpg'); /* "D:\Itqan files\al_itqan_islambad\dI.jpg" */
+            color:#003cff;
             direction:rtl;
             -webkit-font-smoothing:antialiased;
             -moz-osx-font-smoothing:grayscale;
@@ -48,14 +51,19 @@
             padding:20px;
         }
         header {
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            gap:12px;
-            margin-bottom:20px;
-        }
-        h1 { margin:0; font-size:1.8rem; color:#002147; }
-        .back { text-decoration:none; color:#004a9f; background:rgba(0,74,159,0.06); padding:8px 12px; border-radius:6px; }
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:20px;
+}
+
+header h1 {
+    width:100%;
+    text-align:center;
+}
+
+        h1 { margin:0; font-size:1.8rem; color:#ffffff; }
+        .back { text-decoration:none; color:#fcfcfc; background:rgba(3, 119, 252, 0.06); padding:8px 12px; border-radius:6px; }
         .card {
             background:#fff;
             padding:20px;
@@ -64,17 +72,57 @@
         }
         .card h2 { margin-top:0; font-size:1.4rem; color:#002147; }
         .card p { line-height:1.9; font-size:1.05rem; color:#233b60; text-align:justify; }
-        .actions { margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; }
+        .actions { margin-top:18px; display:flex; justify-content: center; gap:12px; flex-wrap:wrap; }
         .btn {
-            display:inline-block;
-            text-decoration:none;
-            padding:12px 18px;
-            border-radius:8px;
-            color:#fff;
-            font-size:1.05rem;
-            cursor:pointer;
-            font-family: 'Jameel Noori Nastaleeq', serif;
-        }
+        display: block;
+        padding: 14px 22px;
+        text-decoration: none;
+        border-radius: 10px;
+        font-family: inherit;
+        text-align: right;
+        background: linear-gradient(135deg, #25D366, #128C7E);
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        transition: 0.2s;
+}
+        .highlight-box {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #ffffff; /* سفید رنگ کی بارڈر */
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.904); /* ہلکا سا شفاف سفید پس منظر */
+  color: #003cff; /* متن سفید رہے */
+  font-weight: bold;
+}
+
+
+        .btn {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-family: 'Jameel Noori Nastaleeq', serif;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    transition: 0.2s;
+}
+        .btn:hover {
+  transform: translateY(-3px);
+}
+.whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.email {
+    background: linear-gradient(135deg, #0f766e, #06b6d4);
+}
+
         .whatsapp { background:linear-gradient(90deg,#25D366,#128C7E); }
         .email { background:linear-gradient(90deg,#4285F4,#2663D6); }
         .note { margin-top:14px; color:#365a8a; font-size:0.95rem; }
@@ -90,9 +138,9 @@
             </select>
         </div>
         <header>
-            <h1 data-i18n="header_title">دارالافتاء الاتقان اسلام آباد</h1>
-            <a class="back" href="index.html" data-i18n="back">واپس جائیں</a>
-        </header>
+  <h1><span class="highlight-box">دارالافتاء الاتقان اسلام آباد</span></h1>
+</header>
+
 
         <div class="card" role="region" aria-label="دارالافتاء مواد">
             <p data-i18n="p1">
@@ -103,12 +151,12 @@
             </p>
 
             <div class="actions" role="navigation" aria-label="دارالافتاء اقدامات">
-                <a class="btn whatsapp" href="https://wa.me/923495995143" target="_blank" rel="noopener noreferrer" aria-label="واٹس ایپ پر سوال بھیجیں" data-i18n="wa_btn">واٹس ایپ پر سوال بھیجیں</a>
-                <!-- mailto opens in a new tab via window.open fallback -->
-                <a id="emailBtn" class="mail-btn" href="mailto:raheemkohati@gmail.com" target="_blank" data-i18n="email_btn" aria-label="بذریعہ ای میل استفتاء بھیجیں">
-بذریعہ ای میل استفتاء بھیجیں
-</a>
-        </div>
+               <a class="btn whatsapp" href="https://wa.me/923495995143" target="_blank" rel="noopener noreferrer">واٹس ایپ پر سوال بھیجیں</a>
+
+<a class="btn email" href="https://mail.google.com/mail/?view=cm&fs=1&to=raheemkohati@gmail.com&su=Darulifta%20Sawal&body=السلام علیکم%0A%0Aاپنا سوال یہاں لکھیں:" 
+class="mail-btn" target="_blank">
+بذریعہ ای میل استفتاء بھیجیں</a>
+          
     </div>
     
     <script>
@@ -181,4 +229,9 @@
         });
     </script>
 </body>
+</html>
+        });
+    </script>
+</body>
+
 </html>
