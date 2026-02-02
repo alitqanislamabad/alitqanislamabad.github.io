@@ -2,7 +2,7 @@
 <html lang="ur" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>الاتقان - اسلام آباد</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
     <!-- Cairo (medium) for الاتقان -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        /* بنیادی سیٹنگ */
+        /* بنیادی سیٹنگ - پہلے جیسا ہی */
         * {
             margin: 0;
             padding: 0;
@@ -24,11 +24,9 @@
             font-family: 'jameel noori nastaleeq', serif;
             color: #333;
             line-height: 1.6;
-
-            /* use local background.png with blue semi-transparent overlay */
             background-image:
                 linear-gradient(rgba(3,100,170,0.40), rgba(3,100,170,0.32)),
-                url('background.png'); /* D:\Itqan files\al_itqan_islambad\background.png */
+                url('background.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -42,7 +40,7 @@
             padding: 0 20px;
         }
         
-        /* ہیڈر سٹائل */
+        /* ہیڈر سٹائل - پہلے جیسا ہی */
         header {
             background: linear-gradient(to right, #002147a6, #1a3a6c);
             color: white;
@@ -68,7 +66,7 @@
             margin-right: 20px;
         }
         
-        .al-itqan-title { /* container for title */
+        .al-itqan-title {
             display: inline-flex;
             align-items: center;
             gap: 12px;
@@ -84,11 +82,10 @@
             z-index: 1;
         }
         
-        /* only the word الاتقان uses Cairo Medium */
         .al-itqan-word {
             font-family: 'Cairo', 'Amiri', serif;
             font-size: inherit;
-            font-weight: 400; /* Cairo Medium */
+            font-weight: 400;
             display: inline-block;
             vertical-align: middle;
             position: relative;
@@ -97,18 +94,12 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* header logo placed inline before the title word */
         .header-logo {
             display: inline-block;
             width: 90px;
             height: auto;
             opacity: 1;
             z-index: 2;
-        }
-
-        @media (max-width: 768px) {
-            .header-logo { width: 64px; margin-left: 10px; }
-            .al-itqan-title { font-size: 2.5rem; }
         }
         
         .islamabad-text {
@@ -139,7 +130,6 @@
             border-radius: 1px;
         }
         
-        /* نیویگیشن بٹن - ایک لائن میں */
         nav {
             width: 100%;
             overflow-x: auto;
@@ -159,7 +149,6 @@
             flex-shrink: 0;
         }
         
-        /* buttons glide in from below (207px) in 1.1s */
         .nav-button {
             background-color: rgba(255, 255, 255, 0.1);
             color: white;
@@ -180,19 +169,18 @@
             will-change: transform, opacity;
         }
         
-        /* show class makes all buttons glide up together */
         .nav-buttons.show .nav-button {
             opacity: 1;
             transform: translateY(0);
         }
         
-         .nav-button:hover {
+        .nav-button:hover {
             background-color: rgba(255, 255, 255, 0.25);
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-         }
+        }
         
-        /* مرکزی مواد */
+        /* مرکزی مواد - پہلے جیسا ہی */
         .main-content {
             padding: 40px 0;
             background-color: rgba(0, 58, 247, 0.753);
@@ -225,7 +213,7 @@
             color: #ffffffe7;
         }
         
-        /* فوٹر */
+        /* فوٹر - پہلے جیسا ہی */
         footer {
             background-color: #002147;
             color: rgb(255, 255, 255);
@@ -252,120 +240,6 @@
             opacity: 0.95;
         }
         
-        /* ریسپانسیو ڈیزائن */
-        @media (max-width: 1100px) {
-            .nav-buttons {
-                justify-content: flex-start;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .logo-section {
-                margin-bottom: 20px;
-                justify-content: center;
-            }
-            
-            .al-itqan-title {
-                font-size: 3.2rem;
-            }
-            
-            .islamabad-text {
-                font-size: 1.2rem;
-                top: 3px;
-                right: 90px;
-            }
-            
-            .ayah-text {
-                text-align: center;
-                margin: 15px 0 0;
-                font-size: 1.8rem;
-            }
-            
-            .nav-buttons {
-                gap: 2px;
-            }
-            
-            .nav-button {
-                padding: 10px 14px;
-                font-size: 1rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .al-itqan-title {
-                font-size: 2.5rem;
-            }
-            
-            .islamabad-text {
-                font-size: 1rem;
-                top: 2px;
-                right: 70px;
-            }
-            
-            .ayah-text {
-                font-size: 1.5rem;
-            }
-            
-            .nav-buttons {
-                justify-content: flex-start;
-                padding-bottom: 8px;
-            }
-            
-            .nav-button {
-                padding: 8px 12px;
-                font-size: 0.9rem;
-            }
-            
-            .institute-description p {
-                font-size: 1.1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .al-itqan-title {
-                font-size: 2rem;
-            }
-            
-            .islamabad-text {
-                font-size: 0.9rem;
-                right: 55px;
-                top: 1px;
-            }
-            
-            .ayah-text {
-                font-size: 1.3rem;
-            }
-            
-            .nav-button {
-                padding: 6px 10px;
-                font-size: 0.85rem;
-            }
-        }
-        
-        /* اسکرول بار سٹائل */
-        nav::-webkit-scrollbar {
-            height: 6px;
-        }
-        
-        nav::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 3px;
-        }
-        
-        nav::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 3px;
-        }
-        
-        nav::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.5);
-        }
-
         /* language selector (top-left) */
         .lang-select {
             position: absolute;
@@ -391,14 +265,331 @@
             font-family: 'Noto Sans', 'El Messiri', Arial, sans-serif;
         }
 
-        /* Arabic pages: prefer Amiri */
         html[lang="ar"] body {
             font-family: 'Amiri', 'Noto Naskh Arabic', 'El Messiri', serif;
         }
 
-        /* Urdu pages: prefer local Nastaleeq */
         html[lang="ur"] body {
             font-family: 'Jameel Noori Nastaleeq', 'Noto Naskh Arabic', 'Amiri', serif;
+        }
+
+        /* اسکرول بار سٹائل */
+        nav::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        nav::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+        
+        nav::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+        
+        nav::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* -------------------- MOBILE SPECIFIC STYLES -------------------- */
+        
+        /* موبائل کے لیے خاص اسٹائلز (ڈیسکٹاپ کو چھوڑ کر) */
+        
+        /* موبائل پر background attachment کو optimize کریں */
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+            }
+        }
+        
+        /* زبان کا selector موبائل کے لیے optimize کریں */
+        @media (max-width: 768px) {
+            .lang-select {
+                position: relative;
+                left: 0;
+                top: 0;
+                text-align: center;
+                margin-bottom: 15px;
+                width: 100%;
+            }
+            
+            .lang-select select {
+                background: rgba(255,255,255,0.15);
+                padding: 8px 12px;
+                font-size: 1.1rem;
+                min-width: 140px;
+            }
+        }
+        
+        /* موبائل پر عنوان کا سائز اور لے آؤٹ optimize کریں */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-section {
+                margin-bottom: 15px;
+                justify-content: center;
+                flex-direction: column;
+            }
+            
+            .logo-text {
+                text-align: center;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .al-itqan-title {
+                font-size: 2.5rem;
+                flex-direction: column;
+                gap: 5px;
+                white-space: normal;
+                text-align: center;
+            }
+            
+            .al-itqan-word {
+                font-size: 2.8rem;
+                margin-bottom: 5px;
+                display: block;
+            }
+            
+            .header-logo {
+                width: 70px;
+                margin-bottom: 10px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .islamabad-text {
+                font-size: 1.8rem;
+                display: block;
+                margin-top: 5px;
+            }
+            
+            .ayah-text {
+                font-size: 1.4rem;
+                text-align: center;
+                margin: 15px 0 0 0;
+                line-height: 1.4;
+                width: 100%;
+            }
+        }
+        
+        /* موبائل پر navigation کو بہتر بنائیں */
+        @media (max-width: 768px) {
+            .nav-line-container {
+                margin-top: 10px;
+            }
+            
+            .header-line {
+                margin-bottom: 8px;
+            }
+            
+            .nav-buttons {
+                justify-content: flex-start;
+                padding-bottom: 8px;
+                gap: 1px;
+            }
+            
+            .nav-button {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+                min-width: max-content;
+                min-height: 44px; /* iOS touch target guideline */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* Touch feedback for mobile */
+            .nav-button:active {
+                background-color: rgba(255, 255, 255, 0.25);
+                transform: scale(0.98);
+            }
+            
+            /* Remove hover effects on touch devices */
+            @media (hover: none) {
+                .nav-button:hover {
+                    background-color: rgba(255, 255, 255, 0.1);
+                    transform: none;
+                    box-shadow: none;
+                }
+            }
+        }
+        
+        /* موبائل پر main content optimize کریں */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 20px 0;
+                min-height: calc(100vh - 300px);
+            }
+            
+            .institute-description {
+                padding: 20px;
+                margin: 20px 15px;
+            }
+            
+            .institute-description p {
+                font-size: 1.1rem;
+                line-height: 1.7;
+            }
+            
+            .footer-content p {
+                font-size: 1.1rem;
+                line-height: 1.8;
+            }
+            
+            .footer-content .copyright {
+                line-height: 1.5;
+            }
+        }
+        
+        /* چھوٹے موبائل فونز کے لیے (480px سے کم) */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .al-itqan-title {
+                font-size: 2rem;
+            }
+            
+            .al-itqan-word {
+                font-size: 2.2rem;
+            }
+            
+            .islamabad-text {
+                font-size: 1.5rem;
+            }
+            
+            .ayah-text {
+                font-size: 1.2rem;
+            }
+            
+            .header-logo {
+                width: 60px;
+            }
+            
+            .nav-button {
+                padding: 8px 10px;
+                font-size: 0.85rem;
+                min-height: 40px;
+            }
+            
+            .institute-description {
+                padding: 15px;
+                margin: 15px 10px;
+            }
+            
+            .institute-description p {
+                font-size: 1.05rem;
+                line-height: 1.6;
+            }
+            
+            .footer-content p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            .footer-content .copyright {
+                font-size: 0.85rem;
+            }
+        }
+        
+        /* بہت چھوٹے فونز (360px سے کم) */
+        @media (max-width: 360px) {
+            .al-itqan-title {
+                font-size: 1.8rem;
+            }
+            
+            .al-itqan-word {
+                font-size: 2rem;
+            }
+            
+            .islamabad-text {
+                font-size: 1.3rem;
+            }
+            
+            .ayah-text {
+                font-size: 1.1rem;
+            }
+            
+            .header-logo {
+                width: 50px;
+            }
+            
+            .nav-button {
+                padding: 6px 8px;
+                font-size: 0.8rem;
+            }
+            
+            /* لمبے متن والے بٹنز کے لیے */
+            .nav-button[data-i18n="nav_courses"],
+            .nav-button[data-i18n="nav_articles"],
+            .nav-button[data-i18n="nav_future"],
+            .nav-button[data-i18n="nav_cooperate"] {
+                font-size: 0.75rem;
+                padding: 8px 6px;
+            }
+        }
+        
+        /* Landscape mode optimization */
+        @media (max-height: 500px) and (orientation: landscape) {
+            header {
+                padding: 15px 0 10px;
+            }
+            
+            .main-content {
+                min-height: auto;
+                padding: 15px 0;
+            }
+            
+            .institute-description {
+                margin: 15px auto;
+                padding: 15px;
+            }
+        }
+        
+        /* موبائل پر viewport height issue کو solve کریں */
+        @media (max-width: 768px) {
+            .main-content {
+                min-height: calc(100vh - 200px);
+            }
+        }
+        
+        /* Accessibility improvements for mobile */
+        @media (max-width: 768px) {
+            .nav-button:focus {
+                outline: 2px solid rgba(255, 255, 255, 0.6);
+                outline-offset: 2px;
+            }
+            
+            .lang-select select:focus {
+                outline: 2px solid rgba(255, 255, 255, 0.6);
+                outline-offset: 2px;
+            }
+        }
+        
+        /* -------------------- END MOBILE STYLES -------------------- */
+        
+        /* ڈیسکٹاپ اسٹائلز پہلے جیسے ہی رہیں گے */
+        @media (min-width: 769px) {
+            /* ڈیسکٹاپ کے لیے کچھ خاص optimization */
+            .nav-buttons {
+                justify-content: center;
+            }
+        }
+        
+        /* ڈیسکٹاپ پر لینگویج selector کی پوزیشن */
+        @media (min-width: 769px) {
+            .lang-select {
+                position: absolute;
+                left: 20px;
+                top: 18px;
+            }
         }
     </style>
 </head>
@@ -543,16 +734,43 @@
             const navList = document.querySelector('.nav-buttons');
             const select = document.getElementById('lang-select');
 
-            // hover effects
-            navButtons.forEach(button => {
-                button.addEventListener('mouseenter', function() {
-                    this.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
+            // Touch device detection
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            
+            if (isTouchDevice) {
+                // Add touch-specific behaviors
+                document.body.classList.add('touch-device');
+                
+                // Remove hover effects on touch devices
+                navButtons.forEach(button => {
+                    button.addEventListener('touchstart', function() {
+                        this.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
+                        this.style.transform = 'scale(0.98)';
+                    });
+                    
+                    button.addEventListener('touchend', function() {
+                        this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                        this.style.transform = '';
+                    });
                 });
+                
+                // Make navigation scroll smoothly on touch devices
+                const nav = document.querySelector('nav');
+                if (nav) {
+                    nav.style.webkitOverflowScrolling = 'touch';
+                }
+            } else {
+                // Desktop hover effects (original code)
+                navButtons.forEach(button => {
+                    button.addEventListener('mouseenter', function() {
+                        this.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
+                    });
 
-                button.addEventListener('mouseleave', function() {
-                    this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                    button.addEventListener('mouseleave', function() {
+                        this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                    });
                 });
-            });
+            }
 
             // trigger glide animation for all buttons together
             if (navList) {
@@ -560,14 +778,65 @@
             }
 
             // initialize language from storage or browser
-            const saved = (function(){ try { return localStorage.getItem('site_lang'); } catch(e){ return null; } })();
+            const saved = (function(){ 
+                try { 
+                    return localStorage.getItem('site_lang'); 
+                } catch(e){ 
+                    return null; 
+                } 
+            })();
+            
             let initial = saved || (navigator.language && navigator.language.startsWith('en') ? 'en' : 'ur');
             if (navigator.language && navigator.language.startsWith('ar')) initial = 'ar';
+            
             if (select) {
                 select.value = initial;
-                select.addEventListener('change', function() { applyLanguage(this.value); });
+                select.addEventListener('change', function() { 
+                    applyLanguage(this.value); 
+                });
             }
             applyLanguage(initial);
+            
+            // Mobile-specific viewport height adjustment
+            function adjustViewportHeight() {
+                if (window.innerWidth <= 768) {
+                    const vh = window.innerHeight * 0.01;
+                    document.documentElement.style.setProperty('--vh', `${vh}px`);
+                    
+                    // Adjust main content height for mobile
+                    const mainContent = document.querySelector('.main-content');
+                    if (mainContent) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const footerHeight = document.querySelector('footer').offsetHeight;
+                        const availableHeight = window.innerHeight - headerHeight - footerHeight - 40;
+                        
+                        if (availableHeight > 300) {
+                            mainContent.style.minHeight = `${availableHeight}px`;
+                        }
+                    }
+                }
+            }
+            
+            // Initial adjustment
+            adjustViewportHeight();
+            
+            // Adjust on resize and orientation change
+            window.addEventListener('resize', adjustViewportHeight);
+            window.addEventListener('orientationchange', function() {
+                setTimeout(adjustViewportHeight, 100);
+            });
+            
+            // Handle image loading for mobile
+            const logoImg = document.querySelector('.header-logo');
+            if (logoImg) {
+                logoImg.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                });
+                
+                logoImg.addEventListener('error', function() {
+                    console.log('Logo image failed to load');
+                });
+            }
         });
     </script>
 </body>
