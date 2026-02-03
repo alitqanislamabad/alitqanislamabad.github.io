@@ -294,286 +294,476 @@
 
         /* -------------------- MOBILE SPECIFIC STYLES -------------------- */
         
-        /* موبائل کے لیے خاص اسٹائلز (ڈیسکٹاپ کو چھوڑ کر) */
-        
-        /* موبائل پر background attachment کو optimize کریں */
-        @media (max-width: 768px) {
-            body {
-                background-attachment: scroll;
-            }
+       /* Add this at the beginning of your <style> section */
+
+/* 1. Viewport and Base Mobile Optimizations */
+@media screen and (max-width: 768px) {
+    /* Force viewport scaling control */
+    html {
+        font-size: 14px; /* Base font size for mobile */
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+        width: 100vw;
+        max-width: 100%;
+    }
+    
+    body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+    
+    /* 2. Container and Layout Adjustments */
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 12px;
+        margin: 0 auto;
+    }
+    
+    /* 3. Header Mobile Optimization */
+    header {
+        padding: 15px 0 10px !important;
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .logo-section {
+        flex-direction: column;
+        margin: 0;
+        width: 100%;
+    }
+    
+    .logo-text {
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .al-itqan-title {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px !important;
+        font-size: 2.2rem !important;
+        white-space: normal;
+        line-height: 1.2;
+        width: 100%;
+    }
+    
+    .al-itqan-word {
+        font-size: 2.5rem !important;
+        margin-bottom: 5px;
+        display: block;
+    }
+    
+    .header-logo {
+        width: 70px !important;
+        height: auto;
+        margin: 0 auto 5px;
+        display: block;
+    }
+    
+    .islamabad-text {
+        font-size: 1.4rem !important;
+        margin-top: 5px;
+        display: block;
+        text-align: center;
+    }
+    
+    .ayah-text {
+        font-size: 1.1rem !important;
+        text-align: center !important;
+        margin: 10px 0 0 0 !important;
+        line-height: 1.4;
+        width: 100%;
+    }
+    
+    /* 4. Navigation Mobile Optimization */
+    .nav-line-container {
+        margin-top: 10px;
+        width: 100%;
+        overflow: visible;
+    }
+    
+    nav {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 5px;
+        width: 100%;
+    }
+    
+    nav::-webkit-scrollbar {
+        height: 3px;
+    }
+    
+    .nav-buttons {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        min-width: max-content;
+        gap: 2px;
+        padding: 5px 0;
+    }
+    
+    .nav-buttons li {
+        flex: 0 0 auto;
+    }
+    
+    .nav-button {
+        padding: 10px 12px !important;
+        font-size: 0.85rem !important;
+        min-height: 44px; /* Touch-friendly size */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        border-radius: 6px;
+        margin: 0 1px;
+    }
+    
+    /* 5. Main Content Mobile Optimization */
+    .main-content {
+        padding: 20px 0 !important;
+        min-height: auto;
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    .institute-description {
+        padding: 20px 15px !important;
+        margin: 15px auto !important;
+        border-radius: 8px;
+        width: calc(100% - 30px);
+        max-width: 100%;
+    }
+    
+    .institute-description h2 {
+        font-size: 1.4rem !important;
+        margin-bottom: 15px;
+    }
+    
+    .institute-description p {
+        font-size: 1rem !important;
+        line-height: 1.6;
+        text-align: justify;
+        hyphens: auto;
+    }
+    
+    /* 6. Footer Mobile Optimization */
+    footer {
+        padding: 20px 0 !important;
+        width: 100%;
+    }
+    
+    .footer-content {
+        padding: 0 15px;
+    }
+    
+    .footer-content p {
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 10px;
+    }
+    
+    .footer-content .copyright {
+        font-size: 0.8rem !important;
+        margin-top: 15px;
+    }
+    
+    /* 7. Language Selector Mobile Optimization */
+    .lang-select {
+        position: static !important;
+        margin: 0 auto 10px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .lang-select select {
+        padding: 8px 12px;
+        font-size: 1rem;
+        min-width: 140px;
+        background: rgba(255,255,255,0.2);
+    }
+    
+    /* 8. Touch Device Specific Styles */
+    @media (hover: none) and (pointer: coarse) {
+        .nav-button:hover {
+            transform: none !important;
+            box-shadow: none !important;
         }
         
-        /* زبان کا selector موبائل کے لیے optimize کریں */
-        @media (max-width: 768px) {
-            .lang-select {
-                position: relative;
-                left: 0;
-                top: 0;
-                text-align: center;
-                margin-bottom: 15px;
-                width: 100%;
-            }
-            
-            .lang-select select {
-                background: rgba(255,255,255,0.15);
-                padding: 8px 12px;
-                font-size: 1.1rem;
-                min-width: 140px;
-            }
+        .nav-button:active {
+            background-color: rgba(255, 255, 255, 0.25) !important;
+            transform: scale(0.98) !important;
+            transition: transform 0.1s ease;
+        }
+    }
+}
+
+/* 9. Small Mobile Devices (Phones < 480px) */
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    .al-itqan-title {
+        font-size: 1.8rem !important;
+    }
+    
+    .al-itqan-word {
+        font-size: 2rem !important;
+    }
+    
+    .islamabad-text {
+        font-size: 1.2rem !important;
+    }
+    
+    .header-logo {
+        width: 60px !important;
+    }
+    
+    .ayah-text {
+        font-size: 1rem !important;
+    }
+    
+    .nav-button {
+        padding: 8px 10px !important;
+        font-size: 0.8rem !important;
+        min-height: 40px;
+    }
+    
+    .institute-description {
+        padding: 15px 12px !important;
+        margin: 10px auto !important;
+    }
+    
+    .institute-description p {
+        font-size: 0.95rem !important;
+        line-height: 1.5;
+    }
+    
+    .lang-select select {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* 10. Very Small Mobile Devices (Phones < 360px) */
+@media screen and (max-width: 360px) {
+    html {
+        font-size: 12px;
+    }
+    
+    .al-itqan-title {
+        font-size: 1.6rem !important;
+    }
+    
+    .al-itqan-word {
+        font-size: 1.8rem !important;
+    }
+    
+    .islamabad-text {
+        font-size: 1.1rem !important;
+    }
+    
+    .header-logo {
+        width: 50px !important;
+    }
+    
+    .nav-button {
+        padding: 6px 8px !important;
+        font-size: 0.75rem !important;
+        min-height: 36px;
+    }
+    
+    /* Adjust for longer text buttons */
+    .nav-button[data-i18n="nav_courses"],
+    .nav-button[data-i18n="nav_articles"],
+    .nav-button[data-i18n="nav_future"],
+    .nav-button[data-i18n="nav_cooperate"] {
+        font-size: 0.7rem !important;
+        padding: 8px 6px !important;
+    }
+}
+
+/* 11. Landscape Mode Optimization */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    header {
+        padding: 10px 0 5px !important;
+    }
+    
+    .al-itqan-title {
+        flex-direction: row !important;
+        font-size: 1.8rem !important;
+        gap: 10px !important;
+    }
+    
+    .header-logo {
+        width: 50px !important;
+        margin: 0;
+    }
+    
+    .nav-buttons {
+        gap: 1px;
+    }
+    
+    .nav-button {
+        padding: 6px 8px !important;
+        font-size: 0.75rem !important;
+    }
+    
+    .main-content {
+        padding: 15px 0 !important;
+        min-height: auto;
+    }
+}
+
+/* 12. Tablet Optimization (768px - 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 95%;
+        padding: 0 20px;
+    }
+    
+    .al-itqan-title {
+        font-size: 3.5rem !important;
+    }
+    
+    .al-itqan-word {
+        font-size: 3.8rem !important;
+    }
+    
+    .islamabad-text {
+        font-size: 2rem !important;
+    }
+    
+    .header-logo {
+        width: 80px !important;
+    }
+    
+    .nav-button {
+        padding: 10px 14px !important;
+        font-size: 0.95rem !important;
+    }
+}
+
+/* 13. Prevent Text Overflow */
+@media screen and (max-width: 768px) {
+    * {
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    p, h1, h2, h3, h4, h5, h6, span {
+        overflow-wrap: break-word;
+        word-break: keep-all;
+    }
+}
+
+/* 14. Image Responsiveness */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 15. Improved Touch Targets for Mobile */
+@media (max-width: 768px) {
+    button, 
+    .nav-button,
+    .lang-select select,
+    a[role="button"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Accessibility focus styles for touch */
+    .nav-button:focus-visible {
+        outline: 2px solid rgba(255, 255, 255, 0.8);
+        outline-offset: 2px;
+    }
+}
+
+/* 16. Smooth Mobile Animations */
+@media (max-width: 768px) {
+    .nav-button {
+        transition: all 0.2s ease;
+    }
+    
+    /* Prevent animation delays on mobile */
+    .nav-buttons.show .nav-button {
+        transition-duration: 0.5s !important;
+    }
+}
+
+/* 17. Mobile Performance Optimizations */
+@media (max-width: 768px) {
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeSpeed;
+    }
+    
+    /* Reduce animations for better performance */
+    .nav-buttons.show .nav-button {
+        animation-duration: 0.5s !important;
+    }
+}
+
+/* 18. Fix for iOS Safari 100vh issue */
+@supports (-webkit-touch-callout: none) {
+    @media (max-width: 768px) {
+        body {
+            height: -webkit-fill-available;
         }
         
-        /* موبائل پر عنوان کا سائز اور لے آؤٹ optimize کریں */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .logo-section {
-                margin-bottom: 15px;
-                justify-content: center;
-                flex-direction: column;
-            }
-            
-            .logo-text {
-                text-align: center;
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-            
-            .al-itqan-title {
-                font-size: 2.5rem;
-                flex-direction: column;
-                gap: 5px;
-                white-space: normal;
-                text-align: center;
-            }
-            
-            .al-itqan-word {
-                font-size: 2.8rem;
-                margin-bottom: 5px;
-                display: block;
-            }
-            
-            .header-logo {
-                width: 70px;
-                margin-bottom: 10px;
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .islamabad-text {
-                font-size: 1.8rem;
-                display: block;
-                margin-top: 5px;
-            }
-            
-            .ayah-text {
-                font-size: 1.4rem;
-                text-align: center;
-                margin: 15px 0 0 0;
-                line-height: 1.4;
-                width: 100%;
-            }
+        .main-content {
+            min-height: -webkit-fill-available;
         }
-        
-        /* موبائل پر navigation کو بہتر بنائیں */
-        @media (max-width: 768px) {
-            .nav-line-container {
-                margin-top: 10px;
-            }
-            
-            .header-line {
-                margin-bottom: 8px;
-            }
-            
-            .nav-buttons {
-                justify-content: flex-start;
-                padding-bottom: 8px;
-                gap: 1px;
-            }
-            
-            .nav-button {
-                padding: 10px 12px;
-                font-size: 0.9rem;
-                min-width: max-content;
-                min-height: 44px; /* iOS touch target guideline */
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            /* Touch feedback for mobile */
-            .nav-button:active {
-                background-color: rgba(255, 255, 255, 0.25);
-                transform: scale(0.98);
-            }
-            
-            /* Remove hover effects on touch devices */
-            @media (hover: none) {
-                .nav-button:hover {
-                    background-color: rgba(255, 255, 255, 0.1);
-                    transform: none;
-                    box-shadow: none;
-                }
-            }
-        }
-        
-        /* موبائل پر main content optimize کریں */
-        @media (max-width: 768px) {
-            .main-content {
-                padding: 20px 0;
-                min-height: calc(100vh - 300px);
-            }
-            
-            .institute-description {
-                padding: 20px;
-                margin: 20px 15px;
-            }
-            
-            .institute-description p {
-                font-size: 1.1rem;
-                line-height: 1.7;
-            }
-            
-            .footer-content p {
-                font-size: 1.1rem;
-                line-height: 1.8;
-            }
-            
-            .footer-content .copyright {
-                line-height: 1.5;
-            }
-        }
-        
-        /* چھوٹے موبائل فونز کے لیے (480px سے کم) */
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            .al-itqan-title {
-                font-size: 2rem;
-            }
-            
-            .al-itqan-word {
-                font-size: 2.2rem;
-            }
-            
-            .islamabad-text {
-                font-size: 1.5rem;
-            }
-            
-            .ayah-text {
-                font-size: 1.2rem;
-            }
-            
-            .header-logo {
-                width: 60px;
-            }
-            
-            .nav-button {
-                padding: 8px 10px;
-                font-size: 0.85rem;
-                min-height: 40px;
-            }
-            
-            .institute-description {
-                padding: 15px;
-                margin: 15px 10px;
-            }
-            
-            .institute-description p {
-                font-size: 1.05rem;
-                line-height: 1.6;
-            }
-            
-            .footer-content p {
-                font-size: 1rem;
-                line-height: 1.6;
-            }
-            
-            .footer-content .copyright {
-                font-size: 0.85rem;
-            }
-        }
-        
-        /* بہت چھوٹے فونز (360px سے کم) */
-        @media (max-width: 360px) {
-            .al-itqan-title {
-                font-size: 1.8rem;
-            }
-            
-            .al-itqan-word {
-                font-size: 2rem;
-            }
-            
-            .islamabad-text {
-                font-size: 1.3rem;
-            }
-            
-            .ayah-text {
-                font-size: 1.1rem;
-            }
-            
-            .header-logo {
-                width: 50px;
-            }
-            
-            .nav-button {
-                padding: 6px 8px;
-                font-size: 0.8rem;
-            }
-            
-            /* لمبے متن والے بٹنز کے لیے */
-            .nav-button[data-i18n="nav_courses"],
-            .nav-button[data-i18n="nav_articles"],
-            .nav-button[data-i18n="nav_future"],
-            .nav-button[data-i18n="nav_cooperate"] {
-                font-size: 0.75rem;
-                padding: 8px 6px;
-            }
-        }
-        
-        /* Landscape mode optimization */
-        @media (max-height: 500px) and (orientation: landscape) {
-            header {
-                padding: 15px 0 10px;
-            }
-            
-            .main-content {
-                min-height: auto;
-                padding: 15px 0;
-            }
-            
-            .institute-description {
-                margin: 15px auto;
-                padding: 15px;
-            }
-        }
-        
-        /* موبائل پر viewport height issue کو solve کریں */
-        @media (max-width: 768px) {
-            .main-content {
-                min-height: calc(100vh - 200px);
-            }
-        }
-        
-        /* Accessibility improvements for mobile */
-        @media (max-width: 768px) {
-            .nav-button:focus {
-                outline: 2px solid rgba(255, 255, 255, 0.6);
-                outline-offset: 2px;
-            }
-            
-            .lang-select select:focus {
-                outline: 2px solid rgba(255, 255, 255, 0.6);
-                outline-offset: 2px;
-            }
-        }
-        
-        /* -------------------- END MOBILE STYLES -------------------- */
+    }
+}
+
+/* 19. Dark Mode Support for Mobile */
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+    body {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .institute-description {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}
+
+/* 20. Print Styles for Mobile */
+@media print and (max-width: 768px) {
+    .nav-buttons,
+    .lang-select,
+    .header-line {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}
         
         /* ڈیسکٹاپ اسٹائلز پہلے جیسے ہی رہیں گے */
         @media (min-width: 769px) {
