@@ -476,15 +476,22 @@
 
             .nav-buttons {
                 display: flex;
-                flex-wrap: nowrap;
-                justify-content: flex-start;
+                flex-wrap: wrap;
+                justify-content: center;
                 min-width: max-content;
                 gap: 2px;
                 padding: 5px 0;
-                padding-bottom: 0 !important;
+                padding-bottom: 10 !important;
+                gap: 6px;
 
             }
-
+            .nav-button {
+                flex: 1 1 45%; /* ہر بٹن تقریباً نصف چوڑائی لے سکتا ہے */
+                min-width: auto; /* minimum width ختم کریں */
+                white-space: normal; /* لائن بریک کے لیے */
+                text-align: center;
+                padding: 10px 12px;
+            }
             .nav-buttons li {
                 flex: 0 0 auto;
             }
