@@ -372,9 +372,20 @@
             }
 
             body {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
                 overflow-x: hidden;
                 width: 100%;
                 position: relative;
+            }
+
+            .main-content {
+                flex: 1;
+            }
+
+            footer {
+                margin-top: auto;
             }
 
             .container {
@@ -829,5 +840,3 @@
         });
 </body>
 </html>
-
-
