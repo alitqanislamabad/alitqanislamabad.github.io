@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <!-- Cairo (medium) for الاتقان -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* بنیادی سیٹنگ - پہلے جیسا ہی */
         * {
@@ -332,6 +333,25 @@
             background: rgba(255,255,255,0.25);
         }
 
+        /* Mobile Navigation Button */
+        .mobile-nav-btn {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-family: 'Jameel Noori Nastaleeq', 'Noto Naskh Arabic', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
         /* language-specific font choices */
         html[lang="en"] body {
             font-family: 'Noto Sans', 'El Messiri', Arial, sans-serif;
@@ -475,7 +495,7 @@
             }
 
             .nav-buttons {
-                display: flex;
+                display: none;
                 flex-wrap: wrap;
                 justify-content: center;
                 min-width: max-content;
@@ -483,6 +503,10 @@
                 padding: 5px 0;
                 padding-bottom: 10 !important;
 
+            }
+
+            .mobile-nav-btn {
+                display: block;
             }
 
             .nav-buttons li {
@@ -678,6 +702,7 @@
                 <div class="ayah-text" id="ayah" data-i18n="ayah_text">
                     فَاسْأَلُوا أَهْلَ الذِّكْرِ إِن كُنتُمْ لَا تَعْلَمُونَ
                 </div>
+                <button class="mobile-nav-btn" data-i18n="nav_menu">مینو</button>
             </div>
         </div>
     </header>
@@ -843,6 +868,17 @@
                 });
             }
             applyLanguage(initial);
+
+            // Mobile navigation button functionality
+            const mobileNavBtn = document.querySelector('.mobile-nav-btn');
+            const navButtons = document.querySelector('.nav-buttons');
+
+            if (mobileNavBtn && navButtons) {
+                mobileNavBtn.addEventListener('click', function() {
+                    navButtons.style.display = 'flex';
+                    navButtons.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+            }
         });
 </body>
 </html>
