@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>دارالافتاء - الاتقان اسلام آباد</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;700&family=El+Messiri:wght@400;500;600;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'Jameel Noori Nastaleeq';
@@ -126,6 +127,17 @@ header h1 {
         .whatsapp { background:linear-gradient(90deg,#25D366,#128C7E); }
         .email { background:linear-gradient(90deg,#4285F4,#2663D6); }
         .note { margin-top:14px; color:#365a8a; font-size:0.95rem; }
+
+        /* Mobile-specific settings */
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+            }
+
+            html[lang="ur"] * {
+                font-family: 'Noto Nastaliq Urdu', 'Noto Naskh Arabic', 'Amiri', serif !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -229,9 +241,4 @@ class="mail-btn" target="_blank">
         });
     </script>
 </body>
-</html>
-        });
-    </script>
-</body>
-
 </html>
