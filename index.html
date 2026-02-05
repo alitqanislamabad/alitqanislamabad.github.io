@@ -333,7 +333,77 @@
             background: rgba(255,255,255,0.25);
         }
 
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 8px 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
 
+        .hamburger:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: relative;
+            width: 100%;
+            background: linear-gradient(to right, #002147a6, #1a3a6c);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            z-index: 5;
+        }
+
+        .mobile-nav.open {
+            max-height: 600px;
+        }
+
+        .mobile-nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mobile-nav-list li {
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-nav-list .nav-button {
+            display: block;
+            width: 100%;
+            padding: 15px 10px;
+            min-height: 50px;
+            box-sizing: border-box;
+            background: transparent;
+            border: none;
+            color: white;
+            text-decoration: none;
+            font-family: 'Jameel Noori Nastaleeq', 'Noto Naskh Arabic', serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-nav-list .nav-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
 
         /* language-specific font choices */
         html[lang="en"] body {
@@ -371,7 +441,7 @@
         @media screen and (max-width: 768px) {
             html {
                 font-size: 14px;
-                overflow-x: hidden;
+                overflow-x: auto;
             }
 
             body {
@@ -403,64 +473,65 @@
             header {
                 padding: 10px 0;
                 width: 100%;
-                overflow: hidden;
                 margin-bottom: 0 !important;
             }
 
             .header-content {
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
-                text-align: center;
+                justify-content: space-between;
                 gap: 10px;
+                flex-wrap: wrap;
             }
 
             .logo-section {
-                flex-direction: column;
+                flex-direction: row;
                 margin: 0;
-                width: 100%;
+                flex: 1;
             }
 
             .logo-text {
-                margin: 0 auto;
-                text-align: center;
+                margin: 0;
+                text-align: right;
             }
 
             .al-itqan-title {
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
-                gap: 5px;
+                gap: 8px;
                 font-size: 2.5rem;
-                white-space: normal;
+                white-space: nowrap;
                 line-height: 1.2;
-                width: 100%;
+                width: auto;
             }
 
             .al-itqan-word {
                 font-size: 2.8rem;
-                margin-bottom: 5px;
-                display: block;
+                margin-bottom: 0;
+                display: inline-block;
             }
 
             .header-logo {
                 width: 60px;
                 height: auto;
-                margin: 0 auto 5px;
-                display: block;
+                margin: 0;
+                display: inline-block;
             }
 
             .islamabad-text {
                 font-size: 1.5rem;
-                margin-top: 5px;
-                display: block;
-                text-align: center;
+                margin-top: 0;
+                display: inline-block;
+                text-align: right;
             }
 
             .ayah-text {
                 font-size: 1.2rem;
-                text-align: center;
-                margin: 10px 0 0 0;
+                text-align: left;
+                margin: 0;
                 line-height: 1.4;
-                width: 100%;
+                flex: 1;
+                text-align: center;
             }
 
             .nav-line-container {
@@ -564,6 +635,18 @@
                 font-size: 1rem;
                 min-width: 140px;
                 background: rgba(255,255,255,0.2);
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-buttons {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: block;
             }
         }
 
@@ -682,6 +765,7 @@
                 <div class="ayah-text" id="ayah" data-i18n="ayah_text">
                     فَاسْأَلُوا أَهْلَ الذِّكْرِ إِن كُنتُمْ لَا تَعْلَمُونَ
                 </div>
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">☰ Menu</button>
             </div>
         </div>
     </header>
@@ -690,6 +774,35 @@
         <div class="header-line"></div>
         <nav>
         </nav>
+    </div>
+
+    <div id="mobile-nav" class="mobile-nav">
+        <ul class="mobile-nav-list">
+            <li class="admin-dropdown">
+                <a class="nav-button" data-i18n="nav_admin">ایڈمن</a>
+                <nav class="buttons-grid" aria-label="Admin navigation">
+                    <a class="admin-btn" href="admissionform.html" target="_blank" rel="noopener noreferrer">داخلہ فارم</a>
+                    <a class="admin-btn" href="faculty.html">فیکلٹی ممبرز</a>
+                    <a class="admin-btn" href="#">پراسپیکٹس</a>
+                    <a class="admin-btn" href="#">مجلۃ الاتقان</a>
+                    <a class="admin-btn" href="#">سٹوڈنٹس پورٹل</a>
+                </nav>
+            </li>
+            <li class="courses-dropdown">
+                <a href="#" class="nav-button" data-i18n="nav_courses">کورسز اینڈ پروگرام</a>
+                <nav class="buttons-grid" aria-label="Courses navigation">
+                    <a class="admin-btn" href="ifta.html">تخصص فی الافتاء</a>
+                    <a class="admin-btn" href="arabic-english.html">تخصص فی اللغۃ العربیۃ والانجلیزیہ</a>
+                    <a class="admin-btn" href="#">حفظ ناظرہ قاعدہ</a>
+                </nav>
+            </li>
+            <li><a href="#" class="nav-button" data-i18n="nav_articles">آرٹیکل اور مقالہ جات</a></li>
+            <li><a href="daruliftah.html" class="nav-button" data-i18n="nav_daruliftah">دارالافتاء</a></li>
+            <li><a href="mustaqbil.html" class="nav-button" data-i18n="nav_future">مستقبل کے منصوبہ جات</a></li>
+            <li><a href="cooperation.html" class="nav-button" data-i18n="nav_cooperate">طریقہ تعاون</a></li>
+            <li><a href="#" class="nav-button" data-i18n="nav_contact">رابطہ</a></li>
+            <li><a href="#" class="nav-button" data-i18n="nav_gallery">گیلری</a></li>
+        </ul>
     </div>
 
     <!-- مرکزی مواد سیکشن -->
@@ -826,6 +939,18 @@
                 });
             });
 
+            // Mobile navigation toggle
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            if (hamburger && mobileNav) {
+                hamburger.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    mobileNav.classList.toggle('open');
+                });
+            }
+
             // Navigation is now outside header, no animation needed
 
             // initialize language from storage or browser
@@ -850,5 +975,6 @@
 
 
         });
+    </script>
 </body>
 </html>
