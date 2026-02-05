@@ -1016,6 +1016,16 @@
                 });
             });
 
+            // Hide mobile nav when clicking outside
+            document.addEventListener('click', function(e) {
+                if (mobileNav && mobileNav.classList.contains('active')) {
+                    if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
+                        mobileNav.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+
             // Navigation is now outside header, no animation needed
 
             // initialize language from storage or browser
