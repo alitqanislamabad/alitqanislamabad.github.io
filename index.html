@@ -492,6 +492,13 @@
             html[lang="ur"] body {
                 font-family: 'Noto Nastaliq Urdu', 'Noto Naskh Arabic', 'Amiri', serif;
             }
+            html[lang="en"] body {
+                font-family: 'Noto Sans', 'El Messiri', Arial, sans-serif;
+            }
+
+            html[lang="ar"] body {
+                font-family: 'Amiri', 'Noto Sans Arabic', 'El Messiri', serif;
+            }
 
             .main-content {
                 flex: 1;
@@ -564,6 +571,7 @@
                 margin-top: 0;
                 display: inline-block;
                 text-align: right;
+                font-family: 'Amiri', serif;
             }
 
             .ayah-text {
@@ -573,6 +581,7 @@
                 line-height: 1.4;
                 flex: 1;
                 text-align: center;
+                font-family: 'Amiri', serif;
             }
 
             .nav-line-container {
@@ -816,19 +825,19 @@
             <li class="admin-dropdown">
                 <a class="nav-button" data-i18n="nav_admin">ایڈمن</a>
                 <nav class="buttons-grid" aria-label="Admin navigation">
-                    <a class="admin-btn" href="admissionform.html">داخلہ فارم</a>
-                    <a class="admin-btn" href="faculty.html">فیکلٹی ممبرز</a>
-                    <a class="admin-btn" href="#">پراسپیکٹس</a>
-                    <a class="admin-btn" href="#">مجلۃ الاتقان</a>
-                    <a class="admin-btn" href="#">سٹوڈنٹس پورٹل</a>
+                    <a class="admin-btn" href="admissionform.html" data-i18n="nav_admission_form">داخلہ فارم</a>
+                    <a class="admin-btn" href="faculty.html" data-i18n="nav_faculty_members">فیکلٹی ممبرز</a>
+                    <a class="admin-btn" href="#" data-i18n="nav_prospectus">پراسپیکٹس</a>
+                    <a class="admin-btn" href="#" data-i18n="nav_majallah">مجلۃ الاتقان</a>
+                    <a class="admin-btn" href="#" data-i18n="nav_students_portal">سٹوڈنٹس پورٹل</a>
                 </nav>
             </li>
             <li class="courses-dropdown">
                 <a href="#" class="nav-button" data-i18n="nav_courses">کورسز اور پروگرام</a>
                 <nav class="buttons-grid" aria-label="Courses navigation">
-                    <a class="admin-btn" href="ifta.html">تخصص فی الافتاء</a>
-                    <a class="admin-btn" href="arabic-english.html">تخصص فی اللغۃ العربیۃ والانجلیزیہ</a>
-                    <a class="admin-btn" href="#">حفظ ناظرہ قاعدہ</a>
+                    <a class="admin-btn" href="ifta.html" data-i18n="nav_ifta">تخصص فی الافتاء</a>
+                    <a class="admin-btn" href="arabic-english.html" data-i18n="nav_arabic_english">تخصص فی اللغۃ العربیۃ والانجلیزیہ</a>
+                    <a class="admin-btn" href="#" data-i18n="nav_hifz">حفظ ناظرہ قاعدہ</a>
                 </nav>
             </li>
             <li><a href="#" class="nav-button" data-i18n="nav_articles">آرٹیکل اور مقالہ جات</a></li>
@@ -852,11 +861,11 @@
             <li class="admin-dropdown">
                 <a class="nav-button" data-i18n="nav_admin">ایڈمن</a>
                 <nav class="buttons-grid" aria-label="Admin navigation">
-                    <a class="admin-btn" href="admissionform.html">داخلہ فارم</a>
-                    <a class="admin-btn" href="faculty.html">فیکلٹی ممبرز</a>
-                    <a class="admin-btn" href="#">پراسپیکٹس</a>
-                    <a class="admin-btn" href="#">مجلۃ الاتقان</a>
-                    <a class="admin-btn" href="#">سٹوڈنٹس پورٹل</a>
+                    <a class="admin-btn" href="admissionform.html" data-i18n="nav_admission_form">داخلہ فارم</a>
+                    <a class="admin-btn" href="faculty.html" data-i18n="nav_faculty_members">فیکلٹی ممبرز</a>
+                    <a class="admin-btn" href="#" data-i18n="nav_prospectus">پراسپیکٹس</a>
+                    <a class="admin-btn" href="#" data-i18n="nav_majallah">مجلۃ الاتقان</a>
+                    <a class="admin-btn" href="#" data-i18n="nav_students_portal">سٹوڈنٹس پورٹل</a>
                 </nav>
             </li>
             <li class="courses-dropdown">
@@ -889,7 +898,7 @@
             <p id="footer-text" data-i18n="footer_text">
                 ممتاز فضلاء کےلیے افتاء اور لغۃ عربیہ وانجلیزیہ کا معیاری ادارہ
             </p>
-            <p class="copyright">© 2026 All rights reserved.</p>
+            <p class="copyright" data-i18n="copyright">© 2026 All rights reserved.</p>
         </div>
     </footer>
     
@@ -902,7 +911,15 @@
                 islamabad_text: 'اسلام آباد',
                 ayah_text: 'فَاسْأَلُوا أَهْلَ الذِّكْرِ إِن كُنتُمْ لَا تَعْلَمُونَ',
                 nav_admin: 'ایڈمن',
+                nav_admission_form: 'داخلہ فارم',
+                nav_faculty_members: 'فیکلٹی ممبرز',
+                nav_prospectus: 'پراسپیکٹس',
+                nav_majallah: 'مجلۃ الاتقان',
+                nav_students_portal: 'سٹوڈنٹس پورٹل',
                 nav_courses: 'کورسز اینڈ پروگرام',
+                nav_ifta: 'تخصص فی الافتاء',
+                nav_arabic_english: 'تخصص فی اللغۃ العربیۃ والانجلیزیہ',
+                nav_hifz: 'حفظ ناظرہ قاعدہ',
                 nav_articles: 'آرٹیکل اور مقالہ جات',
                 nav_daruliftah: 'دارالافتاء',
                 nav_future: 'مستقبل کے منصوبہ جات',
@@ -910,7 +927,8 @@
                 nav_contact: 'رابطہ',
                 nav_gallery: 'گیلری',
                 description: '"الاتقان" گولڑہ موڑ اسلام آباد میں، I-14/2 (سیکٹر) کے قریب واقع ہے اور وفاق المدارس العربیہ پاکستان سے ملحق ایک معیاری دینی ادارہ ہے۔ یہاں تقریبا چالیس (40) رہائشی علماء کرام کو ہرسال، افتاء (مفتی کورس)، عربی اور انگریزی زبان کی مفت تعلیم دی جاتی ہے۔',
-                footer_text: 'ممتاز فضلاء کےلیے افتاء اور لغۃ عربیہ وانجلیزیہ کا معیاری ادارہ'
+                footer_text: 'ممتاز فضلاء کےلیے افتاء اور لغۃ عربیہ وانجلیزیہ کا معیاری ادارہ',
+                copyright: '© ۲۰۲۶ جملہ حقوق محفوظ ہیں۔'
             },
             en: {
                 title: 'Al-Itqan - Islamabad',
@@ -918,7 +936,15 @@
                 islamabad_text: 'Islamabad',
                 ayah_text: '"So ask the people of remembrance if you do not know."',
                 nav_admin: 'Admin',
+                nav_admission_form: 'Admission Form',
+                nav_faculty_members: 'Faculty Members',
+                nav_prospectus: 'Prospectus',
+                nav_majallah: 'Majallah Al-Itqan',
+                nav_students_portal: 'Students Portal',
                 nav_courses: 'Courses & Programs',
+                nav_ifta: 'Ifta Specialization',
+                nav_arabic_english: 'Arabic & English Specialization',
+                nav_hifz: 'Hifz Nazra Qaida',
                 nav_articles: 'Articles & Papers',
                 nav_daruliftah: 'Darul Ifta',
                 nav_future: 'Future Projects',
@@ -934,7 +960,15 @@
                 islamabad_text: 'إسلام أباد',
                 ayah_text: 'فَاسْأَلُوا أَهْلَ الذِّكْرِ إِن كُنتُمْ لَا تَعْلَمُونَ',
                 nav_admin: 'الإدارة',
+                nav_admission_form: 'استمارة الالتحاق',
+                nav_faculty_members: 'أعضاء هيئة التدريس',
+                nav_prospectus: 'النشرة',
+                nav_majallah: 'مجلة الاتقان',
+                nav_students_portal: 'بوابة الطلاب',
                 nav_courses: 'الدورات والبرامج',
+                nav_ifta: 'تخصص الإفتاء',
+                nav_arabic_english: 'تخصص اللغة العربية والإنجليزية',
+                nav_hifz: 'حفظ الناظرة القاعدة',
                 nav_articles: 'مقالات وأبحاث',
                 nav_daruliftah: 'دار الإفتاء',
                 nav_future: 'مشروعات مستقبلية',
@@ -942,7 +976,8 @@
                 nav_contact: 'اتصل',
                 nav_gallery: 'المعرض',
                 description: 'تقع "الاتقان" قرب جُلره مور في إسلام أباد بالقرب من القطاع I-14/2، وهي مؤسسة دينية معروفة مرتبطة بوفاق المدارس العربية باكستان. يتلقى حوالي أربعون (40) عالمًا مقيمًا سنويًا تعليمًا مجانيًا في الإفتاء (دورة مفتي) واللغة العربية والإنجليزية.',
-                footer_text: 'مؤسسة متميزة للإفتاء وتعليم اللغتين العربية والإنجليزية للعلماء المرموقين.'
+                footer_text: 'مؤسسة متميزة للإفتاء وتعليم اللغتين العربية والإنجليزية للعلماء المرموقين.',
+                copyright: '© ۲۰۲۶ جميع الحقوق محفوظة.'
             }
         };
 
