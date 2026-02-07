@@ -301,7 +301,7 @@
             
             <div class="actions" role="navigation" aria-label="دارالافتاء اقدامات">
                 <a class="btn whatsapp" href="https://wa.me/923495995143" target="_blank" rel="noopener noreferrer" data-i18n="wa_btn">واٹس ایپ پر سوال بھیجیں</a>
-                <a class="btn email" href="https://mail.google.com/mail/?view=cm&fs=1&to=raheemkohati@gmail.com&su=Darulifta%20Sawal&body=السلام علیکم%0A%0Aاپنا سوال یہاں لکھیں:" target="_blank" rel="noopener noreferrer" data-i18n="email_btn">بذریعہ ای میل استفتاء بھیجیں</a>
+                <a class="btn email" id="email-btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=raheemkohati@gmail.com&su=Darulifta%20Sawal&body=السلام علیکم%0A%0Aاپنا سوال یہاں لکھیں:" target="_blank" rel="noopener noreferrer" data-i18n="email_btn">بذریعہ ای میل استفتاء بھیجیں</a>
             </div>
         </div>
     </div>
@@ -360,6 +360,20 @@
                 select.addEventListener('change', function(){ applyLanguage(this.value); });
             }
             applyLanguage(initial);
+
+            // Handle email button for desktop and mobile
+            const emailBtn = document.getElementById('email-btn');
+            if (emailBtn) {
+                emailBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                    if (isMobile) {
+                        window.location.href = 'mailto:raheemkohati@gmail.com?subject=Darulifta%20Sawal&body=السلام علیکم%0A%0Aاپنا سوال یہاں لکھیں:';
+                    } else {
+                        window.open('https://mail.google.com/mail/?view=cm&fs=1&to=raheemkohati@gmail.com&su=Darulifta%20Sawal&body=السلام علیکم%0A%0Aاپنا سوال یہاں لکھیں:', '_blank');
+                    }
+                });
+            }
         });
     </script>
 </body>
