@@ -9,12 +9,9 @@
     <style>
         @font-face {
             font-family: 'Jameel Noori Nastaleeq';
-            src: url('fonts/JameelNooriNastaleeq.woff2') format('woff2'),
-                 url('fonts/JameelNooriNastaleeq.woff') format('woff'),
-                 url('fonts/JameelNooriNastaleeq.ttf') format('truetype');
-            font-weight: 400 700;
+            src: url('fonts/Jameel Noori Nastaleeq.ttf') format('truetype');
+            font-weight: normal;
             font-style: normal;
-            font-display: swap;
         }
         
         /* language-specific font choices */
@@ -77,13 +74,7 @@
             color: #ffffff; 
         }
         
-        .back { 
-            text-decoration: none; 
-            color: #fcfcfc; 
-            background: rgba(3, 119, 252, 0.06); 
-            padding: 8px 12px; 
-            border-radius: 6px; 
-        }
+        
         
         .card {
             background: rgba(255, 255, 255, 0.85); /* More transparent */
@@ -157,13 +148,7 @@
             -webkit-backdrop-filter: blur(10px);
         }
         
-        .note { 
-            margin-top: 20px; 
-            color: #365a8a; 
-            font-size: 1rem; 
-            text-align: center;
-        }
-        
+                
         .lang-select {
             position: fixed;
             left: 18px;
@@ -179,7 +164,32 @@
             color: #003cff;
             font-family: inherit;
         }
-
+        footer {
+            background-color: #002147;
+            color: rgb(255, 255, 255);
+            padding: 1px 0;
+            text-align: center;
+            margin-top:35px;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-content p {
+            font-size: 1.2rem;
+            line-height: 0;
+            color: #ffffff;
+        }
+        .footer-content .copyright {
+            font-size: 0.9rem;
+            line-height: 0;
+            color: #d6e9ff;
+            margin-top: 40px;
+            opacity: 0.95;
+        }
         /* Mobile-specific settings */
         @media (max-width: 768px) {
             body {
@@ -187,12 +197,12 @@
                             url('dI.jpg') no-repeat center center;
                 background-size: cover;
                 background-attachment: scroll;
-                font-size: 0.2rem; /* Adjusted for better mobile readability */
+                font-size: 0.3rem; /* Adjusted for better mobile readability */
             }
 
             .lang-select select {
                 padding: 3px 6px;
-                font-size: 0.5rem;
+                font-size: 0.8rem;
             }
 
             .container {
@@ -204,9 +214,7 @@
                 margin-top: 30px;
             }
 
-            h1 {
-                font-size: 2rem; /* Reduced for mobile */
-            }
+           
 
             .card {
                 padding: 20px;
@@ -216,13 +224,13 @@
             }
 
             .card p {
-                font-size: 0.6rem !important; /* Further reduced for mobile */
+                font-size: 0.9rem !important; /* Further reduced for mobile */
                 line-height: 1.7;
             }
 
            
             .btn {
-                font-size: 0.5rem; /* Adjusted for mobile */
+                font-size: 0.9rem; /* Adjusted for mobile */
                 padding: 12px 20px;
                 min-width: 5px;
             }
@@ -240,7 +248,7 @@
             }
 
             html[lang="ur"] * {
-                font-family: 'Noto Nastaliq Urdu', 'Noto Naskh Arabic', 'Amiri', serif !important;
+                font-family: 'Jameel Noori Nastaleeq', 'Noto Naskh Arabic', 'Amiri', serif !important;
             }
         }
         
@@ -252,16 +260,16 @@
             }
             
             h1 {
-                font-size: 1.4rem;
+                font-size: 3rem;
             }
             
             .card {
-                padding: 15px;
+                padding: 12px;
             }
             
             .card p {
-                font-size: 1rem;
-                text-align: right; /* Better for small screens */
+                font-size: 16px;
+                text-align: center; /* Better for small screens */
             }
             
             .btn {
@@ -272,7 +280,7 @@
             
             .highlight-box {
                 padding: 10px 15px;
-                font-size: 1rem;
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -305,7 +313,13 @@
             </div>
         </div>
     </div>
-    
+ <footer>
+        <div class="footer-content">
+            <p id="footer-text" data-i18n="footer_text">
+الاتقان اسلام آباد            </p>
+            <p class="copyright" data-i18n="copyright">© 2026 All rights reserved.</p>
+        </div>
+    </footer>   
     <script>
         // Translations for Daruliftah page
         const translations = {
