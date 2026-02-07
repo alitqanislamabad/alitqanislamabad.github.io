@@ -22,7 +22,12 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+        @font-face {
+            font-family: 'Jameel Noori Nastaleeq';
+            src: url('fonts/Jameel Noori Nastaleeq.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
         body {
             font-family: 'jameel noori nastaleeq', serif;
             color: #333;
@@ -421,7 +426,7 @@
             border: none;
             color: white;
             text-decoration: none;
-            font-family: 'Noto Nastaliq Urdu',  serif;
+            font-family: 'jameel noori nastaleeq',  serif;
             font-size: 1rem;
             font-weight: normal;
             cursor: pointer;
@@ -489,7 +494,7 @@
                 background: transparent;
                 color: #002147;
                 text-decoration: none;
-                font-family: 'Noto Nastaliq Urdu', serif;
+                font-family: 'jameel noori nastaleeq', serif;
                 font-size: 1rem;
                 font-weight: normal;
                 transition: background-color 0.3s ease;
@@ -502,22 +507,11 @@
 
         /* Mobile Optimization */
         @media screen and (max-width: 768px) {
-            html {
-                font-size: 14px;
-                overflow-x: auto;
-            }
-
-            body {
-                min-height: 100vh;
-                display: flex;
-                flex-direction: column;
-                overflow-x: hidden;
-                width: 100%;
-                position: relative;
-            }
+           
+          
 
             html[lang="ur"] body {
-                font-family: 'Noto Nastaliq Urdu', 'Noto Naskh Arabic', 'Amiri', serif;
+                font-family: 'jameel noori nastaleeq', 'Noto Naskh Arabic', 'Amiri', serif;
             }
             html[lang="en"] body {
                 font-family: 'Noto Sans', 'El Messiri', Arial, sans-serif;
@@ -658,26 +652,6 @@
                 margin-top: 0 !important;
             }
 
-            .institute-description {
-                padding: 20px 15px;
-                margin: 15px auto;
-                border-radius: 8px;
-                width: calc(100% - 30px);
-                max-width: 100%;
-            }
-
-            .institute-description h2 {
-                font-size: 1.5rem;
-                margin-bottom: 15px;
-            }
-
-            .institute-description p {
-                font-size: 1rem;
-                line-height: 1.6;
-                text-align: justify;
-                hyphens: auto;
-            }
-
             footer {
                 padding: 20px 0;
                 width: 100%;
@@ -770,6 +744,7 @@
             .institute-description p {
                 font-size: 0.95rem;
                 line-height: 1.5;
+                font-size: 15px;
             }
 
             .lang-select select {
@@ -955,7 +930,6 @@
                 nav_gallery: 'گیلری',
                 description: '"الاتقان" گولڑہ موڑ اسلام آباد میں، I-14/2 (سیکٹر) کے قریب واقع ہے اور وفاق المدارس العربیہ پاکستان سے ملحق ایک معیاری دینی ادارہ ہے۔ یہاں تقریبا چالیس (40) رہائشی علماء کرام کو ہرسال، افتاء (مفتی کورس)، عربی اور انگریزی زبان کی مفت تعلیم دی جاتی ہے۔',
                 footer_text: 'ممتاز فضلاء کےلیے افتاء اور لغۃ عربیہ وانجلیزیہ کا معیاری ادارہ',
-                copyright: '© ۲۰۲۶ جملہ حقوق محفوظ ہیں۔'
             },
             en: {
                 title: 'Al-Itqan - Islamabad',
@@ -1004,7 +978,6 @@
                 nav_gallery: 'المعرض',
                 description: 'تقع "الاتقان" قرب جُلره مور في إسلام أباد بالقرب من القطاع I-14/2، وهي مؤسسة دينية معروفة مرتبطة بوفاق المدارس العربية باكستان. يتلقى حوالي أربعون (40) عالمًا مقيمًا سنويًا تعليمًا مجانيًا في الإفتاء (دورة مفتي) واللغة العربية والإنجليزية.',
                 footer_text: 'مؤسسة متميزة للإفتاء وتعليم اللغتين العربية والإنجليزية للعلماء المرموقين.',
-                copyright: '© ۲۰۲۶ جميع الحقوق محفوظة.'
             }
         };
 
