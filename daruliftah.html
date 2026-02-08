@@ -38,6 +38,7 @@
             padding: 0;
         }
         
+        
         body {
             font-family: 'Jameel Noori Nastaleeq', serif;
             background: linear-gradient(rgba(3, 100, 170, 0.7), rgba(3, 100, 170, 0.5)), 
@@ -155,7 +156,7 @@
             top: 18px;
             z-index: 5;
         }
-        
+
         .lang-select select {
             padding: 8px 15px;
             border-radius: 5px;
@@ -163,6 +164,30 @@
             background: rgba(255, 255, 255, 0.9);
             color: #003cff;
             font-family: inherit;
+        }
+
+        .home-btn {
+            position: fixed;
+            right: 18px;
+            top: 18px;
+            z-index: 5;
+        }
+
+        .home-btn a {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.9);
+            color: #003cff;
+            font-family: inherit;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .home-btn a:hover {
+            background: rgba(255, 255, 255, 1);
         }
         footer {
             background-color: #002147;
@@ -294,6 +319,10 @@
                 <option value="ar">العربية</option>
             </select>
         </div>
+
+        <div class="home-btn">
+            <a href="index.html" data-i18n="back">واپس جائیں</a>
+        </div>
         
         <header>
             <h1><span class="highlight-box">دارالافتاء الاتقان اسلام آباد</span></h1>
@@ -392,4 +421,3 @@
     </script>
 </body>
 </html>
-
