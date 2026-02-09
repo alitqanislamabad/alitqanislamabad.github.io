@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>مستقبل کے منصوبے - الاتقان اسلام آباد</title>
+    <title id="page-title">مستقبل کے منصوبے - الاتقان اسلام آباد</title>
     <style>
        @font-face {
             font-family: 'Jameel Noori Nastaleeq';
@@ -41,20 +41,29 @@
         .actions{margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
         .btn{display:inline-block;padding:12px 18px;border-radius:8px;color:#fff;text-decoration:none;font-size:1.05rem;background:linear-gradient(90deg,#1a73e8,#0b56c7);}
         .btn.secondary{background:linear-gradient(90deg,#26a69a,#00796b);}
-        .back{display:inline-block;margin-bottom:12px;text-decoration:none;color:#004a9f;border:1px solid #004a9f;padding:8px 12px;border-radius:4px;}
+        .back{display:inline-block;margin-bottom:12px;text-decoration:none;color:#004a9f;border:1px solid #004a9f;padding:8px 12px;border-radius:4px;background:white;}
+        .lang-select{position:fixed;top:10px;left:10px;z-index:1000;}
+        .lang-select select{background:white;color:black;border:1px solid #004a9f;padding:6px 8px;border-radius:4px;font-size:1rem;font-family:'jameel noori nastaleeq',serif;outline:none;-webkit-appearance:none;appearance:none;}
         @media (max-width:600px){ .card p{font-size:1rem;} .btn{width:100%;text-align:center;} }
     </style>
 </head>
 <body>
+    <div class="lang-select">
+        <select id="lang-select" aria-label="Select language">
+            <option value="ur">اردو</option>
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+        </select>
+    </div>
     <div class="container">
-        <h1>مستقبل کے منصوبے</h1>
+        <h1 id="main-title">مستقبل کے منصوبے</h1>
 
         <div class="card" role="region" aria-label="مستقبل کے منصوبے مواد">
-            <p>الاتقان اسلام آباد اپنی موجودہ تعلیمی و تحقیقی سرگرمیوں کے ساتھ ساتھ مستقبل میں نئے علمی و فکری شعبہ جات کے قیام کا عزم رکھتا ہے۔ مقصد یہ ہے کہ طلبہ صرف ایک ہی میدان تک محدود نہ رہیں بلکہ مختلف علوم میں مہارت حاصل کریں اور عملی میدان میں مؤثر کردار ادا کرسکیں ۔</p>
+            <p id="intro-p">الاتقان اسلام آباد اپنی موجودہ تعلیمی و تحقیقی سرگرمیوں کے ساتھ ساتھ مستقبل میں نئے علمی و فکری شعبہ جات کے قیام کا عزم رکھتا ہے۔ مقصد یہ ہے کہ طلبہ صرف ایک ہی میدان تک محدود نہ رہیں بلکہ مختلف علوم میں مہارت حاصل کریں اور عملی میدان میں مؤثر کردار ادا کرسکیں ۔</p>
 
-            <h2>مستقبل کے تعلیمی منصوبے</h2>
-            <p>اس سلسلے میں ادارہ درج ذیل علمی و تحقیقی تخصصات کے آغاز کا ارادہ رکھتا ہے:</p>
-            <ul>
+            <h2 id="edu-h2">مستقبل کے تعلیمی منصوبے</h2>
+            <p id="edu-p">اس سلسلے میں ادارہ درج ذیل علمی و تحقیقی تخصصات کے آغاز کا ارادہ رکھتا ہے:</p>
+            <ul id="edu-ul">
                 <li><strong>تخصص فی علوم الحدیث:</strong> طلبہ کو احادیث کی تحقیق، تخریج اور فہم میں مہارت دی جائے گی۔</li>
                 <li><strong>تخصص فی الدعوۃ والارشاد:</strong> خطابت، تقریر اور جدید دعوتی اسالیب کی تربیت۔</li>
                 <li><strong>تخصص فی علم الکلام:</strong> عقلی و نقلی دلائل کے ساتھ جدید فکری چیلنجز کا مقابلہ۔</li>
@@ -63,9 +72,9 @@
                 <li><strong>تربیۃ الائمۃ والخطباء:</strong> ائمہ و خطباء کی علمی، اخلاقی و فکری تربیت۔</li>
             </ul>
 
-            <h2>مستقبل کے تعمیری منصوبے</h2>
-            <p>ادارہ نصابی اور تدریسی سرگرمیوں کے علاوہ ایک جامع تعلیمی ماحول قائم کرنے کا خواہاں ہے۔ منصوبے:</p>
-            <ul>
+            <h2 id="const-h2">مستقبل کے تعمیری منصوبے</h2>
+            <p id="const-p">ادارہ نصابی اور تدریسی سرگرمیوں کے علاوہ ایک جامع تعلیمی ماحول قائم کرنے کا خواہاں ہے۔ منصوبے:</p>
+            <ul id="const-ul">
                 <li>مرکزی مسجد: اجتماعی عبادات اور روحانی تربیت کے لیے۔</li>
                 <li>قرآن ہال: اجتماعی تلاوت، مجالس اور محافل کے لیے۔</li>
                 <li>طلبہ ہاسٹل: آرام دہ رہائش گاہ۔</li>
@@ -75,16 +84,148 @@
                 <li>آن لائن دارالافتاء: عوام اور طلبہ کے لیے براہِ راست شرعی رہنمائی۔</li>
             </ul>
 
-            <p>یہ تمام منصوبے ادارے کی آئندہ ترقی کی سمت کا حصہ ہیں۔ فی الحال جگہ اور وسائل کی کمی کے باعث ان پر عملی کام شروع نہیں ہو سکا، لیکن ادارہ ان کے قیام کے لیے بھرپور کوشش کر رہا ہے اور مستقبل قریب میں ان کا آغاز متوقع ہے۔</p>
+            <p id="concl-p">یہ تمام منصوبے ادارے کی آئندہ ترقی کی سمت کا حصہ ہیں۔ فی الحال جگہ اور وسائل کی کمی کے باعث ان پر عملی کام شروع نہیں ہو سکا، لیکن ادارہ ان کے قیام کے لیے بھرپور کوشش کر رہا ہے اور مستقبل قریب میں ان کا آغاز متوقع ہے۔</p>
 
             <div class="actions" role="navigation" aria-label="عملی اقدامات">
-                <a class="btn" href="cooperation.html">رابطہ</a>
-                <a class="btn secondary" href="cooperation.html">تعاون فرمائیں</a>
+                <a id="contact-btn" class="btn" href="cooperation.html">رابطہ</a>
+                <a id="coop-btn" class="btn secondary" href="cooperation.html">تعاون فرمائیں</a>
             </div>
         </div>
-                <a class="back" href="index.html">واپس جائیں</a>
+                <a id="back-btn" class="back" href="index.html">واپس جائیں</a>
 
     </div>
+    <script>
+        const translations = {
+            en: {
+                title: "Future Plans - Al-Itqan Islamabad",
+                mainTitle: "Future Plans",
+                introP: "Al-Itqan Islamabad, along with its current educational and research activities, is determined to establish new academic and intellectual fields in the future. The purpose is that students are not limited to one field but gain expertise in various sciences and play an effective role in the practical field.",
+                eduH2: "Future Educational Plans",
+                eduP: "In this regard, the institution intends to initiate the following academic and research specializations:",
+                eduUl: [
+                    "<strong>Specialization in Hadith Sciences:</strong> Students will be skilled in research, classification, and understanding of Hadiths.",
+                    "<strong>Specialization in Dawah and Guidance:</strong> Training in oratory, speech, and modern dawah methods.",
+                    "<strong>Specialization in Kalam:</strong> Confronting modern intellectual challenges with rational and textual arguments.",
+                    "<strong>Specialization in Seerat Nabawiyyah:</strong> Deep study of Seerat Nabawi and its practical requirements.",
+                    "<strong>Teacher Training:</strong> Refinement in teaching skills and modern teaching abilities.",
+                    "<strong>Training of Imams and Khutaba:</strong> Academic, moral, and intellectual training of Imams and Khutaba."
+                ],
+                constH2: "Future Construction Plans",
+                constP: "In addition to curricular and teaching activities, the institution desires to establish a comprehensive educational environment. Plans:",
+                constUl: [
+                    "Central Mosque: For collective worship and spiritual training.",
+                    "Quran Hall: For collective recitation, gatherings, and events.",
+                    "Student Hostel: Comfortable accommodation.",
+                    "Classrooms: Construction of teaching rooms according to modern requirements.",
+                    "Library: Comprehensive collection of traditional and modern books and digital resources.",
+                    "Computer Lab: Digital facility for Darul Ifta students.",
+                    "Online Darul Ifta: Direct Sharia guidance for the public and students."
+                ],
+                conclP: "All these plans are part of the institution's future development direction. Currently, due to lack of space and resources, practical work on them has not started, but the institution is making full efforts for their establishment and their initiation is expected in the near future.",
+                contactBtn: "Contact",
+                coopBtn: "Cooperate",
+                backBtn: "Go Back"
+            },
+            ar: {
+                title: "خطط المستقبل - الاتقان إسلام آباد",
+                mainTitle: "خطط المستقبل",
+                introP: "يحرص الاتقان إسلام آباد، بالإضافة إلى أنشطته التعليمية والبحثية الحالية، على إقامة مجالات علمية وفكرية جديدة في المستقبل. الهدف هو ألا يقتصر الطلاب على مجال واحد بل يحصلون على المهارة في علوم مختلفة ويلعبون دورًا فعالاً في الميدان العملي.",
+                eduH2: "خطط تعليمية مستقبلية",
+                eduP: "في هذا السياق، ينوي المؤسسة بدء التخصصات العلمية والبحثية التالية:",
+                eduUl: [
+                    "<strong>تخصص في علوم الحديث:</strong> سيتم تدريب الطلاب على البحث والتصنيف والفهم للأحاديث.",
+                    "<strong>تخصص في الدعوة والإرشاد:</strong> تدريب على الخطابة والكلام وطرق الدعوة الحديثة.",
+                    "<strong>تخصص في علم الكلام:</strong> مواجهة التحديات الفكرية الحديثة بالأدلة العقلية والنقلية.",
+                    "<strong>تخصص في السيرة النبوية:</strong> دراسة عميقة للسيرة النبوية ومتطلباتها العملية.",
+                    "<strong>تدريب المعلمين:</strong> صقل المهارات التدريسية والقدرات التدريسية الحديثة.",
+                    "<strong>تدريب الأئمة والخطباء:</strong> التدريب العلمي والأخلاقي والفكري للأئمة والخطباء."
+                ],
+                constH2: "خطط بناء مستقبلية",
+                constP: "بالإضافة إلى الأنشطة المنهجية والتدريسية، يرغب المؤسسة في إقامة بيئة تعليمية شاملة. الخطط:",
+                constUl: [
+                    "المسجد المركزي: للعبادات الجماعية والتدريب الروحي.",
+                    "قاعة القرآن: للتلاوة الجماعية والمجالس والمحافل.",
+                    "نزل الطلاب: سكن مريح.",
+                    "الفصول الدراسية: بناء غرف تدريسية وفق المتطلبات الحديثة.",
+                    "المكتبة: مجموعة شاملة من الكتب التقليدية والحديثة والموارد الرقمية.",
+                    "مختبر الحاسوب: تسهيل رقمي لطلاب دار الإفتاء.",
+                    "دار الإفتاء عبر الإنترنت: إرشاد شرعي مباشر للجمهور والطلاب."
+                ],
+                conclP: "جميع هذه الخطط جزء من اتجاه تطور المؤسسة المستقبلي. حاليًا، بسبب نقص المكان والموارد، لم يبدأ العمل العملي عليها، لكن المؤسسة تبذل جهودًا كاملة لإقامتها ومن المتوقع بدءها في المستقبل القريب.",
+                contactBtn: "اتصال",
+                coopBtn: "تعاون",
+                backBtn: "العودة"
+            },
+            ur: {
+                title: "مستقبل کے منصوبے - الاتقان اسلام آباد",
+                mainTitle: "مستقبل کے منصوبے",
+                introP: "الاتقان اسلام آباد اپنی موجودہ تعلیمی و تحقیقی سرگرمیوں کے ساتھ ساتھ مستقبل میں نئے علمی و فکری شعبہ جات کے قیام کا عزم رکھتا ہے۔ مقصد یہ ہے کہ طلبہ صرف ایک ہی میدان تک محدود نہ رہیں بلکہ مختلف علوم میں مہارت حاصل کریں اور عملی میدان میں مؤثر کردار ادا کرسکیں ۔",
+                eduH2: "مستقبل کے تعلیمی منصوبے",
+                eduP: "اس سلسلے میں ادارہ درج ذیل علمی و تحقیقی تخصصات کے آغاز کا ارادہ رکھتا ہے:",
+                eduUl: [
+                    "<strong>تخصص فی علوم الحدیث:</strong> طلبہ کو احادیث کی تحقیق، تخریج اور فہم میں مہارت دی جائے گی۔",
+                    "<strong>تخصص فی الدعوۃ والارشاد:</strong> خطابت، تقریر اور جدید دعوتی اسالیب کی تربیت۔",
+                    "<strong>تخصص فی علم الکلام:</strong> عقلی و نقلی دلائل کے ساتھ جدید فکری چیلنجز کا مقابلہ۔",
+                    "<strong>تخصص فی السیرۃ النبویۃ:</strong> سیرتِ نبوی ﷺ کا عمیق مطالعہ اور عملی تقاضے۔",
+                    "<strong>تربیۃ المعلمین:</strong> تدریسی صلاحیتوں اور جدید تدریسی مہارتوں میں نکھار۔",
+                    "<strong>تربیۃ الائمۃ والخطباء:</strong> ائمہ و خطباء کی علمی، اخلاقی و فکری تربیت۔"
+                ],
+                constH2: "مستقبل کے تعمیری منصوبے",
+                constP: "ادارہ نصابی اور تدریسی سرگرمیوں کے علاوہ ایک جامع تعلیمی ماحول قائم کرنے کا خواہاں ہے۔ منصوبے:",
+                constUl: [
+                    "مرکزی مسجد: اجتماعی عبادات اور روحانی تربیت کے لیے۔",
+                    "قرآن ہال: اجتماعی تلاوت، مجالس اور محافل کے لیے۔",
+                    "طلبہ ہاسٹل: آرام دہ رہائش گاہ۔",
+                    "درسگاہیں: جدید تقاضوں کے مطابق تدریسی کمروں کی تعمیر۔",
+                    "لائبریری: روایتی و جدید کتب اور ڈیجیٹل وسائل کا جامع ذخیرہ۔",
+                    "کمپیوٹر لیب: دارالافتاء کے طلبہ کے لیے ڈیجیٹل سہولت۔",
+                    "آن لائن دارالافتاء: عوام اور طلبہ کے لیے براہِ راست شرعی رہنمائی۔"
+                ],
+                conclP: "یہ تمام منصوبے ادارے کی آئندہ ترقی کی سمت کا حصہ ہیں۔ فی الحال جگہ اور وسائل کی کمی کے باعث ان پر عملی کام شروع نہیں ہو سکا، لیکن ادارہ ان کے قیام کے لیے بھرپور کوشش کر رہا ہے اور مستقبل قریب میں ان کا آغاز متوقع ہے۔",
+                contactBtn: "رابطہ",
+                coopBtn: "تعاون فرمائیں",
+                backBtn: "واپس جائیں"
+            }
+        };
+
+        function setLanguage(lang) {
+            const trans = translations[lang];
+            document.title = trans.title;
+            document.getElementById('main-title').innerHTML = trans.mainTitle;
+            document.getElementById('intro-p').innerHTML = trans.introP;
+            document.getElementById('edu-h2').innerHTML = trans.eduH2;
+            document.getElementById('edu-p').innerHTML = trans.eduP;
+            const eduUl = document.getElementById('edu-ul');
+            eduUl.innerHTML = '';
+            trans.eduUl.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = item;
+                eduUl.appendChild(li);
+            });
+            document.getElementById('const-h2').innerHTML = trans.constH2;
+            document.getElementById('const-p').innerHTML = trans.constP;
+            const constUl = document.getElementById('const-ul');
+            constUl.innerHTML = '';
+            trans.constUl.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = item;
+                constUl.appendChild(li);
+            });
+            document.getElementById('concl-p').innerHTML = trans.conclP;
+            document.getElementById('contact-btn').innerHTML = trans.contactBtn;
+            document.getElementById('coop-btn').innerHTML = trans.coopBtn;
+            document.getElementById('back-btn').innerHTML = trans.backBtn;
+            document.documentElement.lang = lang;
+            document.documentElement.dir = (lang === 'en') ? 'ltr' : 'rtl';
+        }
+
+        // Default to Urdu
+        setLanguage('ur');
+
+        // Add event listener to language select
+        document.getElementById('lang-select').addEventListener('change', function() {
+            setLanguage(this.value);
+        });
+    </script>
 </body>
 </html>
-
