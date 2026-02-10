@@ -156,9 +156,10 @@
 
         .success-text {
             font-size: 24px;
-            color: #e76ab3;
+            color: #f2ffff;
             margin-bottom: 10px;
             font-weight: bold;
+            text-align: center;
         }
 
         .success-subtext {
@@ -193,7 +194,7 @@
         
 
         .required {
-    color: red !important;
+            color: red !important;
 }
 
         .fee-description {
@@ -456,6 +457,7 @@
             body {
                 padding-top: 0px;
             }
+        }
     </style>
 </head>
 <body>
@@ -548,14 +550,20 @@
 
         <div class="two-column">
             <div>
-                <label data-i18n="fee_receipt">داخلہ فارم فیس کی رسید<span class="required">*</span></label>
+                <label>
+                <span data-i18n="fee_receipt">داخلہ فارم فیس کی رسید</span>
+                <span class="required">*</span>
+                </label>
                 <div class="fee-description" data-i18n="fee_desc">
                     داخلہ فارم کی فیس 200 روپے ہے۔ارسال کردہ رقم کی تصویر اپلوڈ کریں۔ <br> ایزی پیسہ اکاؤنٹ: <br> PK55TMFB0000000034125014
                 </div>
                 <input type="file" name="فیس_رسید" accept="image" required>
             </div>
             <div>
-                <label data-i18n="kashf_file">دورہ حدیث کے کشف الدرجات کی فائل اپلوڈ<span class="required">*</span></label>
+                <label>
+                <span data-i18n="kashf_file">دورہ حدیث کے کشف الدرجات کی فائل اپلوڈ</span>
+                <span class="required">*</span>
+                </label>
                 <input type="file" id="file" name="کشف_الدرجات" required>
             </div>
         </div>
@@ -572,29 +580,22 @@
 
     <div id="submittedMessage">
         <div class="success-icon">✓</div>
-        <div class="success-text" data-i18n="success_text">
+        <div class="success-text">
             فارم کامیابی سے جمع ہو گیا ہے،داخلہ امتحان کی تاریخ کا بعد میں اعلان کردیا جائے گا۔
             <br>
-          <span style="color: blue;" data-i18n="success_sub">
   درج ذیل لنک کے ذریعہ ادارے کا گروپ جوائن کریں، امتحان سے متعلق جملہ معلومات اسی گروپ میں فراہم کی جائیں گی۔
-  <br><br>
-
+  <br>
 <a href="https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u"
    target="_blank"
    style="color: red; text-align: center; font-size: 12px;">
   https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u
 </a>
-
-
   <br><br>
-
   <a >
     <img src="https://static.wixstatic.com/media/2cd943_33c728c07ba04283a65eac05095363a9~mv2.jpeg"
          alt="WhatsApp Group QR Code"
          style="width: 180px; height: auto; border: 1px solid #ccc;">
   </a>
-</span>
-
         </div>
         <div class="two-column" style="margin-top: 20px;">
             <div>
@@ -642,8 +643,8 @@
             warning_note: 'نوٹ: صرف ممتاز فضلائے کرام یہ فارم جمع کروائیں، میرٹ پر نہ آنے کی صورت میں ادارہ ذمہ دار نہیں ہوگا۔',
             submit_btn: 'فارم جمع کریں',
             submitting: 'جمع کر رہا ہے...',
-            success_text: 'فارم کامیابی سے جمع ہو گیا ہے،داخلہ امتحان کی تاریخ کا بعد میں اعلان کردیا جائے گا۔',
-            success_sub: 'درج ذیل لنک کے ذریعہ ادارے کا گروپ جوائن کریں، امتحان سے متعلق جملہ معلومات اسی گروپ میں فراہم کی جائیں گی۔',
+            success_text: 'فارم کامیابی سے جمع ہو گیا ہے،داخلہ امتحان کی تاریخ کا بعد میں اعلان کردیا جائے گا۔<br><br>درج ذیل لنک کے ذریعہ ادارے کا گروپ جوائن کریں، امتحان سے متعلق جملہ معلومات اسی گروپ میں فراہم کی جائیں گی۔<br><br><a href="https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u" target="_blank" style="color: red; text-align: center; font-size: 12px;">https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u</a><br><br><a><img src="https://static.wixstatic.com/media/2cd943_33c728c07ba04283a65eac05095363a9~mv2.jpeg" alt="WhatsApp Group QR Code" style="width: 180px; height: auto; border: 1px solid #ccc;"></a>',
+            success_sub: 'درج ذیل لنک کے ذریعہ ادارے کا گروپ جوائن کریں، امتحان سے متعلق جملہ معلومات اسی گروپ میں فراہم کی جائیں گی۔<br><br><a href="https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u" target="_blank" style="color: red; text-align: center; font-size: 12px;">https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u</a><br><br><a><img src="https://static.wixstatic.com/media/2cd943_33c728c07ba04283a65eac05095363a9~mv2.jpeg" alt="WhatsApp Group QR Code" style="width: 180px; height: auto; border: 1px solid #ccc;"></a>',
             new_form: 'نیا فارم پر کریں',
             back: 'واپس جائیں'
         },
@@ -678,7 +679,7 @@
             warning_note: 'Note: Only distinguished scholars should submit this form, the institution will not be responsible if not selected on merit.',
             submit_btn: 'Submit Form',
             submitting: 'Submitting...',
-            success_text: 'Form submitted successfully, admission exam date will be announced later.',
+            success_text: 'Form submitted successfully, admission exam date will be announced later.<br><br>Join the institution\'s group via the link below, all information related to the exam will be provided in this group.<br><br><a href="https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u" target="_blank" style="color: red; text-align: center; font-size: 12px;">https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u</a><br><br><a><img src="https://static.wixstatic.com/media/2cd943_33c728c07ba04283a65eac05095363a9~mv2.jpeg" alt="WhatsApp Group QR Code" style="width: 180px; height: auto; border: 1px solid #ccc;"></a>',
             success_sub: 'Join the institution\'s group via the link below, all information related to the exam will be provided in this group.',
             new_form: 'New Form',
             back: 'Go Back'
@@ -880,7 +881,6 @@
     </script>
 </body>
 </html>
-
 
 
 
