@@ -3,10 +3,12 @@
 <head>
     <meta name="google-site-verification" content="urZmpfrQ_hpWN1cdzo9XMnfceAIXQW0_csG88DjDKxM" />
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الاتقان - اسلام آباد</title>
     <!-- Amiri font for الاتقان -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* بنیادی سیٹنگ */
         * {
@@ -554,10 +556,48 @@
                             box-shadow 0.5s ease,
                             background 0.3s ease;
             }
-            
+
             .excerpt-card:hover {
                 transform: translateY(-12px) scale(1.04);
                 box-shadow: 0 25px 35px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 80px;
+            line-height: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon.facebook {
+            color: #4267B2; /* Bright Facebook blue */
+        }
+
+        .social-icon.youtube {
+            color: #FF0000; /* Bright YouTube red */
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Mobile positioning for social icons */
+        @media (max-width: 768px) {
+            .social-icons {
+                position: static;
+                bottom: 0px;
+                justify-content: center;
             }
         }
     </style>
@@ -692,10 +732,20 @@
     <!-- فوٹر سیکشن -->
     <footer>
         <div class="footer-content">
-            <p id="footer-text" data-i18n="footer_text">
-                ممتاز فضلاء کےلیے افتاء اور لغۃ عربیہ وانجلیزیہ کا معیاری ادارہ
-            </p>
-            <p class="copyright" data-i18n="copyright">© 2026 All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/p/Al-Itqan-61563181257198/" target="_blank" rel="noopener" class="social-icon facebook" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="http://www.youtube.com/@alitqanislamabad" target="_blank" rel="noopener" class="social-icon youtube" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+            <div class="footer-text">
+                <p id="footer-text" data-i18n="footer_text">
+                    ممتاز فضلاء کےلیے افتاء اور لغۃ عربیہ وانجلیزیہ کا معیاری ادارہ
+                </p>
+                <p class="copyright" data-i18n="copyright">© 2026 All rights reserved.</p>
+            </div>
         </div>
     </footer>
     
@@ -942,4 +992,3 @@
     </script>
 </body>
 </html>
-
