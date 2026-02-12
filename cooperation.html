@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>طریقہ تعاون - الاتقان اسلام آباد</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        const savedLang = localStorage.getItem('site_lang') || 'ur';
+        document.documentElement.lang = savedLang;
+        document.documentElement.dir = (savedLang === 'en') ? 'ltr' : 'rtl';
+        const titles = {
+            ur: 'طریقہ تعاون - الاتقان اسلام آباد',
+            ar: 'طريقة التعاون - الاتقان إسلام آباد',
+            en: 'Ways of Cooperation - Al-Itqan Islamabad'
+        };
+        document.title = titles[savedLang] || titles.ur;
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -316,11 +324,11 @@
 
             <div class="section">
                 <h2 data-ur="تعاون کرنے کا طریقہ" data-ar="طريقة التعاون" data-en="How to Cooperate">تعاون کرنے کا طریقہ</h2>
-                <p data-ur="بینک اکاؤنٹ کے ذریعے:" data-ar="1.عبر الحساب البنكي:" data-en="1.Through bank account:"><strong>1۔بینک اکاؤنٹ کے ذریعے:</strong></p>
+                <p data-ur="بینک اکاؤنٹ کے ذریعے:" data-ar="عبر الحساب البنكي:" data-en="Through bank account:"><strong>بینک اکاؤنٹ کے ذریعے:</strong></p>
                 <p data-ur="بینک اکاؤنٹ نمبر:  03200113086285" data-ar="رقم الحساب البنكي: 03200113086285" data-en="Bank Account Number: 03200113086285">بینک اکاؤنٹ نمبر:  03200113086285</p>
                 <p data-ur="آئی بین:  PK25MEZN0003200113086285" data-ar="رقم الآيبان: PK25MEZN0003200113086285" data-en="IBAN: PK25MEZN0003200113086285">آئی بین:  PK25MEZN0003200113086285</p>
                 <p data-ur="میزان بینک، برانچ: G-13 BR-ISLAMABAD" data-ar="مصرف ميزان، فرع: G-13 BR-ISLAMABAD" data-en="Meezan Bank, Branch: G-13 BR-ISLAMABAD">میزان بینک، برانچ: G-13 BR-ISLAMABAD</p>
-                <p data-ur="strongبراہِ راست سامان یا عطیہ پہنچانا:" data-ar="تسليم المواد أو التبرعات مباشرة2.:" data-en="2.Delivering goods or donations directly:"><strong>2.براہِ راست سامان یا عطیہ پہنچانا:</strong></p>
+                <p data-ur="strongبراہِ راست سامان یا عطیہ پہنچانا:" data-ar="تسليم المواد أو التبرعات مباشرة:" data-en="Delivering goods or donations directly:"><strong>براہِ راست سامان یا عطیہ پہنچانا:</strong></p>
                 <p data-ur="ایڈریس: نجم انکلیو، فیصل کالونی، گلی نمبر 39،نزدسیکٹر I-14/2 گولڑہ موڑ ، اسلام آباد" data-ar="العنوان: نجم انكليو، فيصل كولوني، شارع رقم 39، بالقرب من قطاع I-14/2 غولڑہ مور، إسلام آباد" data-en="Address: Najam Enclave, Faisal Colony, Street No. 39, Near Sector I-14/2 Golra Morr, Islamabad">ایڈریس: نجم انکلیو، فیصل کالونی، گلی نمبر 39،نزدسیکٹر I-14/2 گولڑہ موڑ ، اسلام آباد</p>
                 <p data-ur="رابطہ نمبر:03459655457" data-ar="رقم الاتصال:03459655457" data-en="Contact Number:03459655457">رابطہ نمبر:03459655457</p>
                 <p data-ur="رابطہ نمبر: 03082805185" data-ar="رقم الاتصال: 03082805185" data-en="Contact Number: 03082805185">رابطہ نمبر: 03082805185</p>
@@ -351,14 +359,10 @@
         </div>
     </div>
     <script>
-        const titles = {
-            ur: 'طریقہ تعاون - الاتقان اسلام آباد',
-            ar: 'طريقة التعاون - الاتقان إسلام آباد',
-            en: 'Ways of Cooperation - Al-Itqan Islamabad'
-        };
         const languageSelect = document.getElementById('language-select');
-        languageSelect.addEventListener('change', function() {
-            const lang = this.value;
+
+        // Function to apply language
+        function applyLanguage(lang) {
             document.documentElement.lang = lang;
             document.documentElement.dir = (lang === 'en') ? 'ltr' : 'rtl';
             document.title = titles[lang];
@@ -366,12 +370,19 @@
             elements.forEach(el => {
                 el.textContent = el.getAttribute('data-' + lang);
             });
+            languageSelect.value = lang;
+        }
+
+        // Load language from localStorage on page load
+        if (savedLang) {
+            applyLanguage(savedLang);
+        }
+
+        languageSelect.addEventListener('change', function() {
+            const lang = this.value;
+            localStorage.setItem('selectedLanguage', lang);
+            applyLanguage(lang);
         });
     </script>
 </body>
 </html>
-
-
-
-
-
