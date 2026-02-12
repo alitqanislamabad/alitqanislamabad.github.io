@@ -17,7 +17,7 @@
         
         @font-face {
             font-family: 'Jameel Noori Nastaleeq';
-            src: url('JameelNooriNastaleeq.ttf') format('truetype');
+            src: url('fonts/Jameel Noori Nastaleeq.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -154,7 +154,7 @@
         }
 
         .excerpt-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.692);
             backdrop-filter: blur(2px);
             padding: 20px;
             border-radius: 10px;
@@ -166,11 +166,10 @@
             will-change: transform, opacity, box-shadow;
             display: flex;
             flex-direction: column;
-            height: 350px;
         }
 
         .excerpt-card .card-content {
-            flex-grow: 1;
+            flex-grow: 0;
         }
         
         /* سٹیگرڈ کارڈ اینیمیشن */
@@ -212,6 +211,7 @@
         .read-more-btn {
             display: inline-block;
             padding: 10px 20px;
+            width: fit-content;
             background: #002147;
             color: white;
             text-decoration: none;
@@ -221,6 +221,7 @@
             position: relative;
             overflow: hidden;
             margin-top: auto;
+            align-self:center;
         }
         
         .read-more-btn:hover {
