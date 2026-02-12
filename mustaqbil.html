@@ -7,7 +7,7 @@
     <style>
        @font-face {
             font-family: 'Jameel Noori Nastaleeq';
-            src: url('JameelNooriNastaleeq.ttf') format('truetype');
+            src: url('fonts/Jameel Noori Nastaleeq.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -15,7 +15,7 @@
             display: block;
             margin-left: 0;
         }
-        
+     
 
 
         html,body{height:100%;margin:0;}
@@ -32,10 +32,23 @@
             background-blend-mode: overlay;
             color:#004faf;direction:rtl;padding:28px;
         }
+
+        /* English language orientation */
+        html[lang="en"] .card p,
+        html[lang="en"] .card ul,
+        html[lang="en"] .card li,
+        html[lang="en"] h2 {
+            text-align: left;
+        }
+
+        html[lang="en"] .card ul {
+            padding-left: 18px;
+            padding-right: 0;
+        }
         .container{max-width:900px;margin:0 auto;}
         h1{font-size:1.9rem;margin-bottom:12px;color:#ffffff;text-align:center;border:3px solid #002147;border-radius:10px;padding:15px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(0,33,71,0.1));box-shadow:0 4px 8px rgba(0,0,0,0.2);}
         .card{background:#ffffff9f;padding:20px;font-size: 18px; border-radius:8px;box-shadow:0 6px 18px rgba(0, 0, 0, 0.966);}
-        .card h2{margin-top:0;font-size:1.25rem;color:#002147;text-align:right;}
+        .card h2{margin-top:0;font-size:1.25rem;color:#002147;text-align:center;}
         .card p, .card ul, .card li{font-size:1.05rem;line-height:1.9;color:#000000;text-align:justify;}
         .card ul{padding-right:18px;}
         .actions{margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
@@ -219,8 +232,17 @@
             document.documentElement.dir = (lang === 'en') ? 'ltr' : 'rtl';
         }
 
-        // Default to Urdu
-        setLanguage('ur');
+        // Load saved language or default to Urdu
+        const saved = localStorage.getItem('site_lang');
+        let initial = saved || 'ur';
+        if (navigator.language && navigator.language.startsWith('en') && !saved) initial = 'en';
+        if (navigator.language && navigator.language.startsWith('ar') && !saved) initial = 'ar';
+
+        // Set initial language
+        setLanguage(initial);
+
+        // Set select value
+        document.getElementById('lang-select').value = initial;
 
         // Add event listener to language select
         document.getElementById('lang-select').addEventListener('change', function() {
