@@ -854,14 +854,10 @@
         readerFee.readAsDataURL(feeReceiptFile);
     });
 
-    newFormBtn.addEventListener('click', function() {
-        form.reset();
-        photoPreviewContainer.style.display = 'none';
-        photoUploadBox.style.display = 'block';
-        changePhotoBtn.style.display = 'none';
-        submittedMessage.style.display = 'none';
-        form.style.display = 'block';
-    });
+   document.getElementById('newFormBtn').addEventListener('click', function() {
+    window.location.reload(); // یہ موجودہ پیج کو reload کرے گا
+});
+
 
     backBtn.addEventListener('click', function() {
         window.location.href = 'index.html';
@@ -869,6 +865,7 @@
     </script>
 </body>
 </html>
+
 
 
 
