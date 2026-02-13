@@ -1,6 +1,26 @@
 <!DOCTYPE html>
-<html lang="ur" dir="rtl">
 <head>
+    <script>
+(function () {
+
+    // اگر پہلے سے زبان محفوظ ہے تو وہی استعمال کرو
+    var savedLang = localStorage.getItem("siteLang");
+
+    // اگر کچھ نہیں ملا تو ڈیفالٹ اردو رکھ سکتے ہو
+    if (!savedLang) savedLang = "ur";
+
+    // html پر لگاؤ
+    document.documentElement.lang = savedLang;
+
+    // سمت خود سیٹ کرو
+    if (savedLang === "ur" || savedLang === "ar")
+        document.documentElement.dir = "rtl";
+    else
+        document.documentElement.dir = "ltr";
+
+})();
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>طریقہ تعاون - الاتقان اسلام آباد</title>
@@ -386,3 +406,4 @@
     </script>
 </body>
 </html>
+
