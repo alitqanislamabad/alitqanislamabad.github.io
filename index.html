@@ -638,6 +638,9 @@ body.arabic-font .fa-brands {
 <body>
     <!-- ہیڈر سیکشن -->
     <header>
+          <button onclick="setLang('ur')">اردو</button>
+    <button onclick="setLang('en')">English</button>
+    <button onclick="setLang('ar')">العربية</button>
         <div class="container">
             <div class="header-content">
                 <div class="logo-section">
@@ -1017,6 +1020,13 @@ body.arabic-font .fa-brands {
             }
         });
     </script>
+      <script>
+    function setLang(lang) {
+      localStorage.setItem("siteLang", lang);
+      location.reload();
+    }
+  </script>
 </body>
 </html>
+
 
