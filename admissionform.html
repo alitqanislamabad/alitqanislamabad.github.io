@@ -1,879 +1,266 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>آن لائن داخلہ فارم برائے الاتقان اسلام آباد</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title id="page-title">مستقبل کے منصوبے - الاتقان اسلام آباد</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
     <style>
-        @font-face {
+       @font-face {
             font-family: 'Jameel Noori Nastaleeq';
             src: url('JameelNooriNastaleeq.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
-        body {
-            font-family: 'jameel noori nastaleeq', serif;
-            color: #31005f;
-            line-height: 1.6;
+
+        
+        button {
+            display: block;
+            margin-left: 0;
+        }
+     
+        html,body{height:100%;margin:0;}
+        body{
+            font-family: 'Jameel Noori Nastaleeq', serif;
             background-image:
-                linear-gradient(rgba(3,100,170,0.40), rgba(3,100,170,0.32)),
+                linear-gradient(rgba(10, 0, 143, 0.336), rgba(121, 134, 143, 0.32)),
                 url('background.png');
+            background-color: #004a9f65;
             background-size: cover;
             background-position: center;
-            background-color: #001f47cb;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-blend-mode: overlay;
-            padding: 20px;
+            color:#004faf;direction:rtl;padding:28px;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
+        /* English language orientation */
+        html[lang="en"] .card p,
+        html[lang="en"] .card ul,
+        html[lang="en"] .card li,
+        html[lang="en"] h2 {
+            text-align: left;
         }
 
-        form {
-            background-color: rgba(255, 255, 255, 0.555);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            font-family: 'jameel noori nastaleeq', serif;
-            font-size: 1.2rem;
-            line-height: 2;
-            color: #34005f;
+        html[lang="en"] .card ul {
+            padding-left: 18px;
+            padding-right: 0;
         }
 
-        label {
-            display: block;
-            margin: 10px 0 8px;
-            font-weight: bold;
-            font-size: 18px;
-            color: #002147;
+        .arabic-font {
+            font-family: 'Amiri';
         }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-family: 'jameel noori nastaleeq', serif;
-            font-size: 16px;
-            box-sizing: border-box;
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .skills label {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            margin: 0;
-            font-weight: normal;
-            font-size: 16px;
-            white-space: nowrap;
-            color: #070049;
-        }
-
-        .skills label input {
-            margin-left: 5px;
-            margin-right: 0;
-            width: auto;
-        }
-
-        .submit-btn {
-            position: relative;
-            background: #002147;
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            border-radius: 8px;
-            font-size: 18px;
-            cursor: pointer;
-            width: 100%;
-            transition: background-color 0.3s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            font-family: 'jameel noori nastaleeq', serif;
-            margin-top: 15px;
-        }
-
-        .submit-btn:hover {
-            background: #1a3a6c;
-        }
-
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
-        .submit-btn:disabled {
-            background: #7fb3b3;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .spinner {
-            width: 22px;
-            height: 22px;
-            border: 3px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        #submittedMessage {
-            display: none;
-            text-align: center;
-            padding: 30px 20px;
-            background-color: rgba(255, 255, 255, 0.555);
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            margin: 20px auto;
-            color: #34005f;
-        }
-
-        .success-icon {
-            font-size: 60px;
-            color: #00ecfd;
-            margin-bottom: 15px;
-        }
-
-        .success-text {
-            font-size: 24px;
-            color: #f2ffff;
-            margin-bottom: 10px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .success-subtext {
-            font-size: 20px;
-            color: #80ffce;
-            margin-bottom: 20px;
-        }
-
-        .form-heading {
-            color: #00ecfd;
-            margin: 0 auto 30px auto;
-            font-size: 40px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-            position: relative;
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 8px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            width: fit-content;
-            text-align: center;
-            white-space: normal;
-        }
-
-       .logo-img {
-            position: static;
-            display: block;
-            margin-right: auto;
-            margin-left: -25px;
-            height: 120px;
-            margin-top: -130px;
-        }
-        
-
-        .required {
-            color: red !important;
-}
-
-        .fee-description {
-            background-color: rgba(0, 33, 71, 0.05);
-            padding: 12px;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            font-size: 16px;
-            border-right: 3px solid #002147;
-            color: #070049;
-            word-break: break-all;
-            overflow-wrap: anywhere;
-            line-height: 1.8;
-        }
-
-        .warning-note {
-            background-color: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            color: #856404;
-            padding: 12px;
-            border-radius: 6px;
-            margin-top: 20px;
-            font-size: 16px;
-            text-align: center;
-        }
-
-        .photo-preview-container {
-            width: 200px;
-            display: static;
-            height: 150px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            overflow: hidden;
-            margin-bottom: 10px;
-            display: none;
-            position: relative;
-        }
-
-        .photo-preview {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background-color: #f9f9f9;
-        }
-
-        .photo-upload-box {
-            border: 2px dashed #002147;
-            border-radius: 8px;
-            height: 150px;
-            width: 200px;
-            padding: 15px;
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .photo-upload-box:hover {
-            background-color: rgba(255, 255, 255, 0.9);
-        }
-
-        .photo-upload-box p {
-            margin: 0;
-            font-size: 16px;
-            color: #002147;
-        }
-
-        .photo-upload-icon {
-            font-size: 40px;
-            color: #002147;
-            margin-bottom: -4px;
-            margin-top: 25px;
-        }
-
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .three-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .photo-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .photo-label {
-            margin-top: 0;
-        }
-
-        .change-photo-btn {
-            background-color: #002147;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 6px;
-            font-size: 14px;
-            cursor: pointer;
-            margin-top: 10px;
-            font-family: 'jameel noori nastaleeq', serif;
-            display: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .change-photo-btn:hover {
-            background-color: #1a3a6c;
-        }
-
-        .lang-select {
-            width: fit-content;
-            margin: 0px auto;
-            text-align: center;
-            float: left;
-            position: relative;
-            top: 150px;
-        }
-
-        /* Language-specific font classes for desktop */
-        .lang-ur, .lang-ur input, .lang-ur textarea, .lang-ur select, .lang-ur label, .lang-ur button, .lang-ur p, .lang-ur div { font-family: 'Jameel Noori Nastaleeq', serif !important; }
-        .lang-en, .lang-en input, .lang-en textarea, .lang-en select, .lang-en label, .lang-en button, .lang-en p, .lang-en div { font-family: Arial, sans-serif !important; }
-        .lang-ar, .lang-ar input, .lang-ar textarea, .lang-ar select, .lang-ar label, .lang-ar button, .lang-ar p, .lang-ar div { font-family: 'Amiri', serif !important; }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-
-            .lang-ur, .lang-ur input, .lang-ur textarea, .lang-ur select, .lang-ur label, .lang-ur button, .lang-ur p, .lang-ur div {
-                font-family: 'jameel noori nastaleeq', serif !important;
-            }
-
-            .lang-ar, .lang-ar input, .lang-ar textarea, .lang-ar select, .lang-ar label, .lang-ar button, .lang-ar p, .lang-ar div {
-                font-family: 'Amiri', serif !important;
-            }
-
-            .lang-en, .lang-en input, .lang-en textarea, .lang-en select, .lang-en label, .lang-en button, .lang-en p, .lang-en div {
-                font-family: Arial, sans-serif !important;
-            }
-
-            .container {
-                padding: 15px;
-            }
-
-            .form-heading {
-                font-size: 1rem;
-            }
-
-            form {
-                padding: 20px;
-                font-size: 1rem;
-            }
-
-            .skills {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .success-icon {
-                font-size: 50px;
-            }
-
-            .success-text {
-                font-size: 20px;
-            }
-
-            .two-column {
-                grid-template-columns: 1fr;
-            }
-
-            .three-column {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Small mobiles (max 480px) */
-        @media (max-width: 480px) {
-
-            .form-heading {
-                font-size: 20px;
-                font-weight: bold;
-                padding: 10px;
-                margin: 0 auto;
-            }
-
-            .logo-img {
-                position: static;
-                display: block;
-                margin: 10px auto;
-                height: 70px;
-            }
-
-            form {
-                padding: 15px;
-                font-size: 1rem;
-            }
-
-            label {
-                font-size: 16px;
-            }
-
-            input, select, textarea {
-                font-size: 15px;
-                padding: 8px;
-            }
-
-            .skills {
-                grid-template-columns: 1fr;
-            }
-
-            .photo-upload-box,
-            .photo-preview-container {
-            width: 150px;  /* پہلے 90% تھا، اب فکسڈ چھوٹا سائز */
-            height: 110px;
-            }
-
-            .photo-upload-icon {
-                font-size: 28px;  /* پہلے 40px تھا، اب چھوٹا کریں */
-                margin-top: 15px; /* تھوڑا کم مارجن */
-                margin-bottom: 0;
-            }
-
-            .photo-upload-box p {
-                font-size: 14px;  /* ٹیکسٹ چھوٹا کریں */
-                margin: 5px 0 0 0;
-            }
-        }
-
-        /* Extra small phones (max 375px) */
-        @media (max-width: 375px) {
-
-            body {
-                padding: 5px;
-            }
-
-            .container {
-                padding: 10px;
-            }
-
-            .submit-btn {
-                font-size: 16px;
-                padding: 12px;
-            }
-
-            .success-text {
-                font-size: 18px;
-            }
-        }
-
-        /* Desktop adjustments */
-        @media (min-width: 769px) {
-            body {
-                padding-top: 0px;
-            }
-        }
+        .container{max-width:900px;margin:0 auto;}
+        h1{font-size:1.9rem;margin-bottom:12px;color:#ffffff;text-align:center;border:3px solid #002147;border-radius:10px;padding:15px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(0,33,71,0.1));box-shadow:0 4px 8px rgba(0,0,0,0.2);}
+        .card{background:#ffffff9f;padding:20px;font-size: 18px; border-radius:8px;box-shadow:0 6px 18px rgba(0, 0, 0, 0.966);}
+        .card h2{margin-top:0;font-size:1.25rem;color:#002147;text-align:center;}
+        .card p, .card ul, .card li{font-size:1.05rem;line-height:1.9;color:#000000;text-align:justify;}
+        .card ul{padding-right:18px;}
+        .actions{margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+        .btn{display:inline-block;padding:12px 18px;border-radius:8px;color:#fff;text-decoration:none;font-size:1.05rem;background:linear-gradient(90deg,#1a73e8,#0b56c7);}
+        .btn.secondary{background:linear-gradient(90deg,#26a69a,#00796b);}
+        .back{display:inline-block;margin-bottom:12px;text-decoration:none;color:#004a9f;border:1px solid #004a9f;padding:8px 12px;border-radius:4px;background:white;}
+        .lang-select{position:fixed;top:10px;left:10px;z-index:1000;}
+        .lang-select select{background:white;color:black;border:1px solid #004a9f;padding:6px 8px;border-radius:4px;font-size:1rem;font-family:'jameel noori nastaleeq',serif;outline:none;-webkit-appearance:none;appearance:none;}
+        @media (max-width:600px){ .card p{font-size:1rem;} .btn{width:100%;text-align:center;} }
     </style>
 </head>
 <body>
-
-    <div class="lang-select" style="text-align: center; margin: -4% -2%;">
+    <div class="lang-select">
         <select id="lang-select" aria-label="Select language">
             <option value="ur">اردو</option>
-            <option value="ar">العربية</option>
             <option value="en">English</option>
-
+            <option value="ar">العربية</option>
         </select>
     </div>
-
     <div class="container">
-        <form id="admissionForm">
-        <div class="form-heading" data-i18n="form_heading">
-            آن لائن داخلہ فارم برائے الاتقان اسلام آباد
-        </div>
-        <img src="logo.jpg" alt="Logo" class="logo-img">
-        
-        <div class="photo-section">
-            <label class="photo-label"> <span class="required">*</span></label>
-            <div class="photo-upload-box" id="photoUploadBox">
-                <div class="photo-upload-icon">📷</div>
-                <p data-i18n="photo_label">تصویر اپلوڈ کریں</p>
-            </div>
-            <input type="file" name="تصویر" accept="image" required style="display: none;" id="photoInput">
-            <div class="photo-preview-container" id="photoPreviewContainer">
-                <img id="photoPreview" class="photo-preview" src="#" alt="تصویر کا پیش نظارہ">
-            </div>
-            <button type="button" class="change-photo-btn" id="changePhotoBtn" data-i18n="change_photo">تصویر تبدیل کریں</button>
-        </div>
+        <h1 id="main-title">مستقبل کے منصوبے</h1>
 
-        <div class="three-column">
-            <div>
-                <label><span data-i18n="name">نام</span><span class="required">*</span></label>
-                <input type="text" name="نام" required>
-            </div>
-            <div>
-                <label><span data-i18n="father_name">ولدیت</span><span class="required">*</span></label>
-                <input type="text" name="ولدیت" required>
-            </div>
-            <div>
-                <label><span data-i18n="dob">تاریخ پیدائش</span><span class="required">*</span></label>
-                <input type="date" name="تاریخ_پیدائش" required>
+        <div class="card" role="region" aria-label="مستقبل کے منصوبے مواد">
+            <p id="intro-p">الاتقان اسلام آباد اپنی موجودہ تعلیمی و تحقیقی سرگرمیوں کے ساتھ ساتھ مستقبل میں نئے علمی و فکری شعبہ جات کے قیام کا عزم رکھتا ہے۔ مقصد یہ ہے کہ طلبہ صرف ایک ہی میدان تک محدود نہ رہیں بلکہ مختلف علوم میں مہارت حاصل کریں اور عملی میدان میں مؤثر کردار ادا کرسکیں ۔</p>
+
+            <h2 id="edu-h2">مستقبل کے تعلیمی منصوبے</h2>
+            <p id="edu-p">اس سلسلے میں ادارہ درج ذیل علمی و تحقیقی تخصصات کے آغاز کا ارادہ رکھتا ہے:</p>
+            <ul id="edu-ul">
+                <li><strong>تخصص فی علوم الحدیث:</strong> طلبہ کو احادیث کی تحقیق، تخریج اور فہم میں مہارت دی جائے گی۔</li>
+                <li><strong>تخصص فی الدعوۃ والارشاد:</strong> خطابت، تقریر اور جدید دعوتی اسالیب کی تربیت۔</li>
+                <li><strong>تخصص فی علم الکلام:</strong> عقلی و نقلی دلائل کے ساتھ جدید فکری چیلنجز کا مقابلہ۔</li>
+                <li><strong>تخصص فی السیرۃ النبویۃ:</strong> سیرتِ نبوی ﷺ کا عمیق مطالعہ اور عملی تقاضے۔</li>
+                <li><strong>تربیۃ المعلمین:</strong> تدریسی صلاحیتوں اور جدید تدریسی مہارتوں میں نکھار۔</li>
+                <li><strong>تربیۃ الائمۃ والخطباء:</strong> ائمہ و خطباء کی علمی، اخلاقی و فکری تربیت۔</li>
+            </ul>
+
+            <h2 id="const-h2">مستقبل کے تعمیری منصوبے</h2>
+            <p id="const-p">ادارہ نصابی اور تدریسی سرگرمیوں کے علاوہ ایک جامع تعلیمی ماحول قائم کرنے کا خواہاں ہے۔ منصوبے:</p>
+            <ul id="const-ul">
+                <li>مرکزی مسجد: اجتماعی عبادات اور روحانی تربیت کے لیے۔</li>
+                <li>قرآن ہال: اجتماعی تلاوت، مجالس اور محافل کے لیے۔</li>
+                <li>طلبہ ہاسٹل: آرام دہ رہائش گاہ۔</li>
+                <li>درسگاہیں: جدید تقاضوں کے مطابق تدریسی کمروں کی تعمیر۔</li>
+                <li>لائبریری: روایتی و جدید کتب اور ڈیجیٹل وسائل کا جامع ذخیرہ۔</li>
+                <li>کمپیوٹر لیب: دارالافتاء کے طلبہ کے لیے ڈیجیٹل سہولت۔</li>
+                <li>آن لائن دارالافتاء: عوام اور طلبہ کے لیے براہِ راست شرعی رہنمائی۔</li>
+            </ul>
+
+            <p id="concl-p">یہ تمام منصوبے ادارے کی آئندہ ترقی کی سمت کا حصہ ہیں۔ فی الحال جگہ اور وسائل کی کمی کے باعث ان پر عملی کام شروع نہیں ہو سکا، لیکن ادارہ ان کے قیام کے لیے بھرپور کوشش کر رہا ہے اور مستقبل قریب میں ان کا آغاز متوقع ہے۔</p>
+
+            <div class="actions" role="navigation" aria-label="عملی اقدامات">
+                <a id="contact-btn" class="btn" href="cooperation.html">رابطہ</a>
+                <a id="coop-btn" class="btn secondary" href="cooperation.html">تعاون فرمائیں</a>
             </div>
         </div>
+                <a id="back-btn" class="back" href="index.html">واپس جائیں</a>
 
-        <div class="two-column">
-            <div>
-                <label><span data-i18n="cnic">شناختی کارڈ نمبر</span><span class="required">*</span></label>
-                <input type="text" name="شناختی_کارڈ_نمبر" required>
-            </div>
-            <div>
-                <label><span data-i18n="whatsapp">واٹساپ نمبر</span><span class="required">*</span></label>
-                <input type="text" name="فون_نمبر" required>
-            </div>
-        </div>
-
-        <label><span data-i18n="address">ایڈریس</span><span class="required">*</span></label>
-        <input type="text" name="ایڈریس" required>
-
-        <div class="two-column">
-            <div>
-                <label><span data-i18n="degree">مطلوبہ درجہ</span><span class="required">*</span></label>
-                <select name="مطلوبہ_درجہ" required>
-                    <option value="" data-i18n="select_option">منتخب کریں</option>
-                    <option value="تخصص فی الافتاء" data-i18n="degree_ifta">تخصص فی الافتاء</option>
-                    <option value="تخصص فی اللغۃ العربیۃ" data-i18n="degree_arabic">تخصص فی اللغۃ العربیۃ</option>
-                </select>
-            </div>
-            <div>
-<label><span data-i18n="hadith_course">دورہ حدیث/سابقہ تعلیم کس مدرسے سے حاصل کی</span><span class="required">*</span></label>
-                <input type="text" name="دورہ_حدیث_نمبرات" required>
-            </div>
-        </div>
-
-        <label data-i18n="skills">دیگر مہارات:</label>
-        <div class="skills">
-            <label><input type="checkbox" name="دیگر_مہارات" value="MS Word"> <span data-i18n="skill_word">MS Word</span></label>
-            <label><input type="checkbox" name="دیگر_مہارات" value="PowerPoint"> <span data-i18n="skill_powerpoint">PowerPoint</span></label>
-            <label><input type="checkbox" name="دیگر_مہارات" value="Printer Settings"> <span data-i18n="skill_printer">Printer Settings</span></label>
-            <label><input type="checkbox" name="دیگر_مہارات" value="Electricity"> <span data-i18n="skill_electricity">Electricity</span></label>
-            <label><input type="checkbox" name="دیگر_مہارات" value="Cooking"> <span data-i18n="skill_cooking">Cooking</span></label>
-            <label><input type="checkbox" name="دیگر_مہارات" value="تلاوت"> <span data-i18n="skill_tilawat">تلاوت</span></label>
-            <label><input type="checkbox" name="دیگر_مہارات" value="نعت"> <span data-i18n="skill_naat">نعت</span></label>
-            <label><input type="checkbox" name="دیگر_مہارات" value="تقریر"> <span data-i18n="skill_taqrir">تقریر</span></label>
-            <label><input type="checkbox" name="دیگر_مہارات" value="IT"> <span data-i18n="skill_it">IT</span></label>
-        </div>
-
-        <div class="two-column">
-            <div>
-                <label>
-                <span data-i18n="fee_receipt">داخلہ فارم فیس کی رسید</span>
-                <span class="required">*</span>
-                </label>
-                <div class="fee-description" data-i18n="fee_desc">
-                    داخلہ فارم کی فیس 200 روپے ہے۔ارسال کردہ رقم کی تصویر اپلوڈ کریں۔ <br> ایزی پیسہ اکاؤنٹ: <br> PK55TMFB0000000034125014
-                </div>
-                <input type="file" name="فیس_رسید" accept="image" required>
-            </div>
-            <div>
-                <label>
-                <span data-i18n="kashf_file">دورہ حدیث کے کشف الدرجات کی فائل اپلوڈ</span>
-                <span class="required">*</span>
-                </label>
-                <input type="file" id="file" name="کشف_الدرجات" required>
-            </div>
-        </div>
-
-        <div class="warning-note" data-i18n="warning_note">
-            نوٹ: صرف ممتاز فضلائے کرام یہ فارم جمع کروائیں، میرٹ پر نہ آنے کی صورت میں ادارہ ذمہ دار نہیں ہوگا۔
-        </div>
-
-        <button type="submit" class="submit-btn" id="submitBtn">
-            <span id="btnText" data-i18n="submit_btn">فارم جمع کریں</span>
-            <div id="btnSpinner" class="spinner" style="display: none;"></div>
-        </button>
-    </form>
-
-    <div id="submittedMessage">
-        <div class="success-icon">✓</div>
-        <div class="success-text" data-i18n="success_text"></div>
-        <div class="success-subtext" data-i18n="success_sub">
-        </div>
-        <div class="two-column" style="margin-top: 20px;">
-            <div>
-                <button type="button" class="submit-btn" id="newFormBtn" data-i18n="new_form">نیا فارم پر کریں</button>
-            </div>
-            <div>
-                <button type="button" class="submit-btn" id="backBtn" data-i18n="back">واپس جائیں</button>
-            </div>
-        </div>
     </div>
-
     <script>
-    // Translations
-    const translations = {
-        ur: {
-            title: 'آن لائن داخلہ فارم برائے الاتقان اسلام آباد',
-            form_heading: 'آن لائن داخلہ فارم برائے الاتقان اسلام آباد',
-            photo_label: 'تصویر اپلوڈ کریں',
-            change_photo: 'تصویر تبدیل کریں"
-            name: 'نام',
-            father_name: 'ولدیت',
-            dob: 'تاریخ پیدائش',
-            cnic: 'شناختی کارڈ نمبر',
-            whatsapp: 'واٹساپ نمبر',
-            address: 'ایڈریس',
-            degree: 'مطلوبہ درجہ',
-            select_option: 'منتخب کریں',
-            degree_ifta: 'تخصص فی الافتاء',
-            degree_arabic: 'تخصص فی اللغۃ العربیۃ',
-            hadith_course: 'دورہ حدیث/سابقہ تعلیم کس مدرسے سے حاصل کی',
-            skills: 'دیگر مہارات:',
-            skill_word: 'MS Word',
-            skill_powerpoint: 'PowerPoint',
-            skill_printer: 'Printer Settings',
-            skill_electricity: 'Electricity',
-            skill_cooking: 'Cooking',
-            skill_tilawat: 'تلاوت',
-            skill_naat: 'نعت',
-            skill_taqrir: 'تقریر',
-            skill_it: 'IT',
-            fee_receipt: 'داخلہ فارم فیس کی رسید',
-            fee_desc: 'داخلہ فارم کی فیس 200 روپے ہے۔ارسال کردہ رقم کی تصویر اپلوڈ کریں۔ <br> ایزی پیسہ اکاؤنٹ: <br> PK55TMFB0000000034125014',
-            kashf_file: 'دورہ حدیث کے کشف الدرجات کی فائل اپلوڈ',
-            warning_note: 'نوٹ: صرف ممتاز فضلائے کرام یہ فارم جمع کروائیں، میرٹ پر نہ آنے کی صورت میں ادارہ ذمہ دار نہیں ہوگا۔',
-            submit_btn: 'فارم جمع کریں',
-            submitting: 'جمع کر رہا ہے...',
-            success_text: 'فارم کامیابی سے جمع ہو گیا ہے،داخلہ امتحان کی تاریخ کا بعد میں اعلان کردیا جائے گا۔',
-            success_sub: 'درج ذیل لنک کے ذریعہ ادارے کا گروپ جوائن کریں، امتحان سے متعلق جملہ معلومات اسی گروپ میں فراہم کی جائیں گی۔<br><br><a href="https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u" target="_blank" style="color: red; text-align: center; font-size: 12px;">https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u</a><br><br><a><img src="https://static.wixstatic.com/media/2cd943_33c728c07ba04283a65eac05095363a9~mv2.jpeg" alt="WhatsApp Group QR Code" style="width: 180px; height: auto; border: 1px solid #ccc;"></a>',
-            new_form: 'نیا فارم پر کریں',
-            back: 'واپس جائیں'
-        },
-        en: {
-            title: 'Online Admission Form for Al-Itqan Islamabad',
-            form_heading: 'Online Admission Form for Al-Itqan Islamabad',
-            photo_label: 'Upload Photo',
-            change_photo: 'Change picture',
-            name: 'Name',
-            father_name: 'Father Name',
-            dob: 'Date of Birth',
-            cnic: 'CNIC Number',
-            whatsapp: 'WhatsApp Number',
-            address: 'Address',
-            degree: 'Desired Degree',
-            select_option: 'Select',
-            degree_ifta: 'Ifta Specialization',
-            degree_arabic: 'Arabic Language Specialization',
-            hadith_course: 'Hadith Course / Previous Education from which Madrasa',
-            skills: 'Other Skills:',
-            skill_word: 'MS Word',
-            skill_powerpoint: 'PowerPoint',
-            skill_printer: 'Printer Settings',
-            skill_electricity: 'Electricity',
-            skill_cooking: 'Cooking',
-            skill_tilawat: 'Tilawat',
-            skill_naat: 'Naat',
-            skill_taqrir: 'Speech',
-            skill_it: 'IT',
-            fee_receipt: 'Admission Form Fee Receipt',
-            fee_desc: 'The admission form fee is 200 rupees. Upload the image of the sent amount. <br> EasyPaisa Account: <br> PK55TMFB0000000034125014',
-            kashf_file: 'Upload Hadith Course Kashf al-Darajat File',
-            warning_note: 'Note: Only distinguished scholars should submit this form, the institution will not be responsible if not selected on merit.',
-            submit_btn: 'Submit Form',
-            submitting: 'Submitting...',
-            success_text: 'Form submitted successfully, admission exam date will be announced later.',
-            success_sub: 'Join the institution\'s group via the link below, all information related to the exam will be provided in this group.<br><br><a href="https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u" target="_blank" style="color: red; text-align: center; font-size: 12px;">https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u</a><br><br><a><img src="https://static.wixstatic.com/media/2cd943_33c728c07ba04283a65eac05095363a9~mv2.jpeg" alt="WhatsApp Group QR Code" style="width: 180px; height: auto; border: 1px solid #ccc;"></a>',
-            new_form: 'New Form',
-            back: 'Go Back'
-        },
-        ar: {
-            title: 'نموذج القبول لمعهد الاتقان إسلام آباد',
-            form_heading: 'نموذج القبول عبر الإنترنت لمعهد الاتقان إسلام آباد',
-            photo_label: 'تحميل الصورة',
-            change_photo: 'غير الصورة',
-            name: 'الاسم',
-            father_name: 'اسم الأب',
-            dob: 'تاريخ الميلاد',
-            cnic: 'رقم بطاقة الهوية',
-            whatsapp: 'رقم الواتساب',
-            address: 'العنوان',
-            degree: 'الدرجة المطلوبة',
-            select_option: 'اختر',
-            degree_ifta: 'تخصص الإفتاء',
-            degree_arabic: 'تخصص اللغة العربية',
-            hadith_course: 'دورة الحديث / التعليم السابق من أي مدرسة',
-            skills: 'مهارات أخرى:',
-            skill_word: 'MS Word',
-            skill_powerpoint: 'PowerPoint',
-            skill_printer: 'إعدادات الطابعة',
-            skill_electricity: 'الكهرباء',
-            skill_cooking: 'الطبخ',
-            skill_tilawat: 'التلاوة',
-            skill_naat: 'الإنشاد',
-            skill_taqrir: 'الخطابة',
-            skill_it: 'تكنولوجيا المعلومات',
-            fee_receipt: 'إيصال رسوم نموذج القبول',
-            fee_desc: 'رسوم نموذج القبول 200 روبية. قم بتحميل صورة المبلغ المرسل. <br> حساب إيزي بايسا: <br> PK55TMFB0000000034125014',
-            kashf_file: 'تحميل ملف كشف الدرجات لدورة الحديث',
-            warning_note: 'ملاحظة: يجب على العلماء المتميزين فقط تقديم هذا النموذج، ولن يكون المعهد مسؤولاً إذا لم يتم اختيارهم بناءً على الجدارة.',
-            submit_btn: 'تقديم النموذج',
-            submitting: 'جارٍ التقديم...',
-            success_text: 'تم تقديم النموذج بنجاح، سيتم الإعلان عن تاريخ امتحان القبول لاحقاً.',
-            success_sub: 'انضم إلى مجموعة المعهد عبر الرابط أدناه، سيتم تقديم جميع المعلومات المتعلقة بالامتحان في هذه المجموعة.<br><br><a href="https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u" target="_blank" style="color: red; text-align: center; font-size: 12px;">https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u</a><br><br><a><img src="https://static.wixstatic.com/media/2cd943_33c728c07ba04283a65eac05095363a9~mv2.jpeg" alt="WhatsApp Group QR Code" style="width: 180px; height: auto; border: 1px solid #ccc;"></a>',
-            new_form: 'نموذج جديد',
-            back: 'العودة'
-        }
-    };
-
-    function applyLanguage(lang) {
-        const dict = translations[lang] || translations.ur;
-        document.documentElement.lang = lang;
-        document.documentElement.dir = (lang === 'en') ? 'ltr' : 'rtl';
-        document.title = dict.title;
-
-        // Set font family based on language
-        if (lang === 'ar') {
-            document.body.style.fontFamily = "'Amiri', serif";
-        } else {
-            document.body.style.fontFamily = "'Jameel Noori Nastaleeq', serif";
-        }
-
-        // Remove previous language classes
-        document.body.classList.remove('lang-ur', 'lang-en', 'lang-ar');
-        // Add current language class
-        document.body.classList.add('lang-' + lang);
-
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (dict[key]) {
-                el.innerHTML = dict[key];
+        const translations = {
+            en: {
+                title: "Future Plans - Al-Itqan Islamabad",
+                mainTitle: "Future Plans",
+                introP: "Al-Itqan Islamabad, along with its current educational and research activities, is determined to establish new academic and intellectual fields in the future. The purpose is that students are not limited to one field but gain expertise in various sciences and play an effective role in the practical field.",
+                eduH2: "Future Educational Plans",
+                eduP: "In this regard, the institution intends to initiate the following academic and research specializations:",
+                eduUl: [
+                    "<strong>Specialization in Hadith Sciences:</strong> Students will be skilled in research, classification, and understanding of Hadiths.",
+                    "<strong>Specialization in Dawah and Guidance:</strong> Training in oratory, speech, and modern dawah methods.",
+                    "<strong>Specialization in Kalam:</strong> Confronting modern intellectual challenges with rational and textual arguments.",
+                    "<strong>Specialization in Seerat Nabawiyyah:</strong> Deep study of Seerat Nabawi and its practical requirements.",
+                    "<strong>Teacher Training:</strong> Refinement in teaching skills and modern teaching abilities.",
+                    "<strong>Training of Imams and Khutaba:</strong> Academic, moral, and intellectual training of Imams and Khutaba."
+                ],
+                constH2: "Future Construction Plans",
+                constP: "In addition to curricular and teaching activities, the institution desires to establish a comprehensive educational environment. Plans:",
+                constUl: [
+                    "Central Mosque: For collective worship and spiritual training.",
+                    "Quran Hall: For collective recitation, gatherings, and events.",
+                    "Student Hostel: Comfortable accommodation.",
+                    "Classrooms: Construction of teaching rooms according to modern requirements.",
+                    "Library: Comprehensive collection of traditional and modern books and digital resources.",
+                    "Computer Lab: Digital facility for Darul Ifta students.",
+                    "Online Darul Ifta: Direct Sharia guidance for the public and students."
+                ],
+                conclP: "All these plans are part of the institution's future development direction. Currently, due to lack of space and resources, practical work on them has not started, but the institution is making full efforts for their establishment and their initiation is expected in the near future.",
+                contactBtn: "Contact",
+                coopBtn: "Cooperate",
+                backBtn: "Go Back"
+            },
+            ar: {
+                title: "خطط المستقبل - الاتقان إسلام آباد",
+                mainTitle: "خطط المستقبل",
+                introP: "يحرص الاتقان إسلام آباد، بالإضافة إلى أنشطته التعليمية والبحثية الحالية، على إقامة مجالات علمية وفكرية جديدة في المستقبل. الهدف هو ألا يقتصر الطلاب على مجال واحد بل يحصلون على المهارة في علوم مختلفة ويلعبون دورًا فعالاً في الميدان العملي.",
+                eduH2: "خطط تعليمية مستقبلية",
+                eduP: "في هذا السياق، ينوي المؤسسة بدء التخصصات العلمية والبحثية التالية:",
+                eduUl: [
+                    "<strong>تخصص في علوم الحديث:</strong> سيتم تدريب الطلاب على البحث والتصنيف والفهم للأحاديث.",
+                    "<strong>تخصص في الدعوة والإرشاد:</strong> تدريب على الخطابة والكلام وطرق الدعوة الحديثة.",
+                    "<strong>تخصص في علم الكلام:</strong> مواجهة التحديات الفكرية الحديثة بالأدلة العقلية والنقلية.",
+                    "<strong>تخصص في السيرة النبوية:</strong> دراسة عميقة للسيرة النبوية ومتطلباتها العملية.",
+                    "<strong>تدريب المعلمين:</strong> صقل المهارات التدريسية والقدرات التدريسية الحديثة.",
+                    "<strong>تدريب الأئمة والخطباء:</strong> التدريب العلمي والأخلاقي والفكري للأئمة والخطباء."
+                ],
+                constH2: "خطط بناء مستقبلية",
+                constP: "بالإضافة إلى الأنشطة المنهجية والتدريسية، يرغب المؤسسة في إقامة بيئة تعليمية شاملة. الخطط:",
+                constUl: [
+                    "المسجد المركزي: للعبادات الجماعية والتدريب الروحي.",
+                    "قاعة القرآن: للتلاوة الجماعية والمجالس والمحافل.",
+                    "نزل الطلاب: سكن مريح.",
+                    "الفصول الدراسية: بناء غرف تدريسية وفق المتطلبات الحديثة.",
+                    "المكتبة: مجموعة شاملة من الكتب التقليدية والحديثة والموارد الرقمية.",
+                    "مختبر الحاسوب: تسهيل رقمي لطلاب دار الإفتاء.",
+                    "دار الإفتاء عبر الإنترنت: إرشاد شرعي مباشر للجمهور والطلاب."
+                ],
+                conclP: "جميع هذه الخطط جزء من اتجاه تطور المؤسسة المستقبلي. حاليًا، بسبب نقص المكان والموارد، لم يبدأ العمل العملي عليها، لكن المؤسسة تبذل جهودًا كاملة لإقامتها ومن المتوقع بدءها في المستقبل القريب.",
+                contactBtn: "اتصال",
+                coopBtn: "تعاون",
+                backBtn: "العودة"
+            },
+            ur: {
+                title: "مستقبل کے منصوبے - الاتقان اسلام آباد",
+                mainTitle: "مستقبل کے منصوبے",
+                introP: "الاتقان اسلام آباد اپنی موجودہ تعلیمی و تحقیقی سرگرمیوں کے ساتھ ساتھ مستقبل میں نئے علمی و فکری شعبہ جات کے قیام کا عزم رکھتا ہے۔ مقصد یہ ہے کہ طلبہ صرف ایک ہی میدان تک محدود نہ رہیں بلکہ مختلف علوم میں مہارت حاصل کریں اور عملی میدان میں مؤثر کردار ادا کرسکیں ۔",
+                eduH2: "مستقبل کے تعلیمی منصوبے",
+                eduP: "اس سلسلے میں ادارہ درج ذیل علمی و تحقیقی تخصصات کے آغاز کا ارادہ رکھتا ہے:",
+                eduUl: [
+                    "<strong>تخصص فی علوم الحدیث:</strong> طلبہ کو احادیث کی تحقیق، تخریج اور فہم میں مہارت دی جائے گی۔",
+                    "<strong>تخصص فی الدعوۃ والارشاد:</strong> خطابت، تقریر اور جدید دعوتی اسالیب کی تربیت۔",
+                    "<strong>تخصص فی علم الکلام:</strong> عقلی و نقلی دلائل کے ساتھ جدید فکری چیلنجز کا مقابلہ۔",
+                    "<strong>تخصص فی السیرۃ النبویۃ:</strong> سیرتِ نبوی ﷺ کا عمیق مطالعہ اور عملی تقاضے۔",
+                    "<strong>تربیۃ المعلمین:</strong> تدریسی صلاحیتوں اور جدید تدریسی مہارتوں میں نکھار۔",
+                    "<strong>تربیۃ الائمۃ والخطباء:</strong> ائمہ و خطباء کی علمی، اخلاقی و فکری تربیت۔"
+                ],
+                constH2: "مستقبل کے تعمیری منصوبے",
+                constP: "ادارہ نصابی اور تدریسی سرگرمیوں کے علاوہ ایک جامع تعلیمی ماحول قائم کرنے کا خواہاں ہے۔ منصوبے:",
+                constUl: [
+                    "مرکزی مسجد: اجتماعی عبادات اور روحانی تربیت کے لیے۔",
+                    "قرآن ہال: اجتماعی تلاوت، مجالس اور محافل کے لیے۔",
+                    "طلبہ ہاسٹل: آرام دہ رہائش گاہ۔",
+                    "درسگاہیں: جدید تقاضوں کے مطابق تدریسی کمروں کی تعمیر۔",
+                    "لائبریری: روایتی و جدید کتب اور ڈیجیٹل وسائل کا جامع ذخیرہ۔",
+                    "کمپیوٹر لیب: دارالافتاء کے طلبہ کے لیے ڈیجیٹل سہولت۔",
+                    "آن لائن دارالافتاء: عوام اور طلبہ کے لیے براہِ راست شرعی رہنمائی۔"
+                ],
+                conclP: "یہ تمام منصوبے ادارے کی آئندہ ترقی کی سمت کا حصہ ہیں۔ فی الحال جگہ اور وسائل کی کمی کے باعث ان پر عملی کام شروع نہیں ہو سکا، لیکن ادارہ ان کے قیام کے لیے بھرپور کوشش کر رہا ہے اور مستقبل قریب میں ان کا آغاز متوقع ہے۔",
+                contactBtn: "رابطہ",
+                coopBtn: "تعاون فرمائیں",
+                backBtn: "واپس جائیں"
             }
-        });
-
-        try { localStorage.setItem('site_lang', lang); } catch (e) {}
-    }
-
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyi_FfHF-nxn_j-Cp9oQ2ZhyewzAric30xcO1860NfKZJos2Pe1QLAL2IecI4_ZF39a/exec"; // Google Apps Script Web App URL
-    const form = document.getElementById('admissionForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const btnText = document.getElementById('btnText');
-    const btnSpinner = document.getElementById('btnSpinner');
-    const submittedMessage = document.getElementById('submittedMessage');
-    const photoInput = document.getElementById('photoInput');
-    const photoUploadBox = document.getElementById('photoUploadBox');
-    const photoPreview = document.getElementById('photoPreview');
-    const photoPreviewContainer = document.getElementById('photoPreviewContainer');
-    const changePhotoBtn = document.getElementById('changePhotoBtn');
-    const newFormBtn = document.getElementById('newFormBtn');
-    const backBtn = document.getElementById('backBtn');
-    const langSelect = document.getElementById('lang-select');
-
-    // Set initial language
-    const saved = localStorage.getItem('site_lang');
-    let initial = saved || (navigator.language && navigator.language.startsWith('en') ? 'en' : 'ur');
-    if (navigator.language && navigator.language.startsWith('ar')) initial = 'ar';
-    langSelect.value = initial;
-    applyLanguage(initial);
-
-    // Language change event
-    langSelect.addEventListener('change', function() {
-        applyLanguage(this.value);
-    });
-
-    photoUploadBox.addEventListener('click', function() {
-        photoInput.click();
-    });
-    changePhotoBtn.addEventListener('click', function() {
-        photoInput.click();
-    });
-    photoInput.addEventListener('change', function() {
-        const file = this.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                photoPreview.src = e.target.result;
-                photoPreviewContainer.style.display = 'block';
-                photoUploadBox.style.display = 'none';
-                changePhotoBtn.style.display = 'block';
-            }
-            reader.readAsDataURL(file);
-        } else {
-            photoPreviewContainer.style.display = 'none';
-            photoUploadBox.style.display = 'block';
-            changePhotoBtn.style.display = 'none';
-        }
-    });
-
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-
-        submitBtn.disabled = true;
-        const currentLang = langSelect.value;
-        btnText.textContent = translations[currentLang].submitting;
-        btnSpinner.style.display = 'block';
-
-        const feeReceiptInput = document.querySelector('input[name="فیس_رسید"]');
-        const kashfInput = document.getElementById('file');
-        const photoFile = photoInput.files[0];
-        const feeReceiptFile = feeReceiptInput.files[0];
-        const kashfFile = kashfInput.files[0];
-
-       
-
-        const readerPhoto = new FileReader();
-        const readerFee = new FileReader();
-        const readerKashf = new FileReader();
-
-        readerFee.onload = function(event) {
-            const feeData = event.target.result.split(',')[1];
-            readerKashf.onload = function(event) {
-                const kashfData = event.target.result.split(',')[1];
-                readerPhoto.onload = function(event) {
-                    const photoData = event.target.result.split(',')[1];
-
-                    const formData = new FormData(form);
-                    formData.append("fee_receipt_data", feeData);
-                    formData.append("fee_receipt_name", feeReceiptFile.name);
-                    formData.append("fee_receipt_type", feeReceiptFile.type);
-
-                    formData.append("file_data", kashfData);
-                    formData.append("file_name", kashfFile.name);
-                    formData.append("file_type", kashfFile.type);
-
-                    formData.append("photo_data", photoData);
-                    formData.append("photo_name", photoFile.name);
-                    formData.append("photo_type", photoFile.type);
-
-                    fetch(scriptURL, { method: 'POST', body: formData })
-                    .then(res => res.json())
-                    .then(response => {
-                        if(response.success){
-                            form.style.display = "none";
-                            submittedMessage.style.display = "block";
-                            submittedMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        } else {
-                            throw new Error(response.message);
-                        }
-                    })
-                    .catch(err => {
-                        alert("غلطی: " + err.message);
-                        submitBtn.disabled = false;
-                        btnText.textContent = translations[currentLang].submit_btn;
-                        btnSpinner.style.display = 'none';
-                    });
-
-                };
-                readerPhoto.readAsDataURL(photoFile);
-            };
-            readerKashf.readAsDataURL(kashfFile);
         };
-        readerFee.readAsDataURL(feeReceiptFile);
-    });
 
-    newFormBtn.addEventListener('click', function() {
-        form.reset();
-        photoPreviewContainer.style.display = 'none';
-        photoUploadBox.style.display = 'block';
-        changePhotoBtn.style.display = 'none';
-        submittedMessage.style.display = 'none';
-        form.style.display = 'block';
-    });
+        function setLanguage(lang) {
+            const trans = translations[lang];
+            document.title = trans.title;
+            document.getElementById('main-title').innerHTML = trans.mainTitle;
+            document.getElementById('intro-p').innerHTML = trans.introP;
+            document.getElementById('edu-h2').innerHTML = trans.eduH2;
+            document.getElementById('edu-p').innerHTML = trans.eduP;
+            const eduUl = document.getElementById('edu-ul');
+            eduUl.innerHTML = '';
+            trans.eduUl.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = item;
+                eduUl.appendChild(li);
+            });
+            document.getElementById('const-h2').innerHTML = trans.constH2;
+            document.getElementById('const-p').innerHTML = trans.constP;
+            const constUl = document.getElementById('const-ul');
+            constUl.innerHTML = '';
+            trans.constUl.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = item;
+                constUl.appendChild(li);
+            });
+            document.getElementById('concl-p').innerHTML = trans.conclP;
+            document.getElementById('contact-btn').innerHTML = trans.contactBtn;
+            document.getElementById('coop-btn').innerHTML = trans.coopBtn;
+            document.getElementById('back-btn').innerHTML = trans.backBtn;
+            document.documentElement.lang = lang;
+            document.documentElement.dir = (lang === 'en') ? 'ltr' : 'rtl';
 
-    backBtn.addEventListener('click', function() {
-        window.location.href = 'index.html';
-    });
+            // Apply Arabic font class
+            if (lang === 'ar') {
+                document.body.classList.add('arabic-font');
+            } else {
+                document.body.classList.remove('arabic-font');
+            }
+        }
+
+        // Load saved language or default to Urdu
+        const saved = localStorage.getItem('site_lang');
+        let initial = saved || 'ur';
+        if (navigator.language && navigator.language.startsWith('en') && !saved) initial = 'en';
+        if (navigator.language && navigator.language.startsWith('ar') && !saved) initial = 'ar';
+
+        // Set initial language
+        setLanguage(initial);
+
+        // Set select value
+        document.getElementById('lang-select').value = initial;
+
+        // Add event listener to language select
+        document.getElementById('lang-select').addEventListener('change', function() {
+            setLanguage(this.value);
+        });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
