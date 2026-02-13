@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
-<head>  
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <title id="page-title">مستقبل کے منصوبے - الاتقان اسلام آباد</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
     <style>
        @font-face {
             font-family: 'Jameel Noori Nastaleeq';
@@ -13,15 +14,12 @@
             font-style: normal;
         }
 
-     html[lang="ar"], html[lang="ar"] body {
-    font-family: 'Amiri', serif;
-}
-
+        
         button {
             display: block;
             margin-left: 0;
         }
-        
+     
         html,body{height:100%;margin:0;}
         body{
             font-family: 'Jameel Noori Nastaleeq', serif;
@@ -48,6 +46,10 @@
         html[lang="en"] .card ul {
             padding-left: 18px;
             padding-right: 0;
+        }
+
+        .arabic-font {
+            font-family: 'Amiri';
         }
         .container{max-width:900px;margin:0 auto;}
         h1{font-size:1.9rem;margin-bottom:12px;color:#ffffff;text-align:center;border:3px solid #002147;border-radius:10px;padding:15px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(0,33,71,0.1));box-shadow:0 4px 8px rgba(0,0,0,0.2);}
@@ -234,6 +236,13 @@
             document.getElementById('back-btn').innerHTML = trans.backBtn;
             document.documentElement.lang = lang;
             document.documentElement.dir = (lang === 'en') ? 'ltr' : 'rtl';
+
+            // Apply Arabic font class
+            if (lang === 'ar') {
+                document.body.classList.add('arabic-font');
+            } else {
+                document.body.classList.remove('arabic-font');
+            }
         }
 
         // Load saved language or default to Urdu
@@ -255,8 +264,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
