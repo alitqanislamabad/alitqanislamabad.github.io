@@ -1,26 +1,5 @@
 <!DOCTYPE html>
 <head>
-    <script>
-(function () {
-
-    // اگر پہلے سے زبان محفوظ ہے تو وہی استعمال کرو
-    var savedLang = localStorage.getItem("siteLang");
-
-    // اگر کچھ نہیں ملا تو ڈیفالٹ اردو رکھ سکتے ہو
-    if (!savedLang) savedLang = "ur";
-
-    // html پر لگاؤ
-    document.documentElement.lang = savedLang;
-
-    // سمت خود سیٹ کرو
-    if (savedLang === "ur" || savedLang === "ar")
-        document.documentElement.dir = "rtl";
-    else
-        document.documentElement.dir = "ltr";
-
-})();
-</script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="title">داخلے کا طریقہ کار - الاتقان اسلام آباد</title>
@@ -119,10 +98,7 @@
                     <option value="en">English</option>
                     <option value="ar">العربية</option>
                 </select>
-            </div>
-         <button onclick="setLang('ur')">اردو</button>
-    <button onclick="setLang('en')">English</button>
-    <button onclick="setLang('ar')">العربية</button>
+            </div>      
     </header>
     <div class="container">
         <div class="content">
@@ -223,5 +199,6 @@
     </script>
 </body>
 </html>
+
 
 
