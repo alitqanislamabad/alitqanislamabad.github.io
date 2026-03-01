@@ -458,6 +458,34 @@
                 padding-top: 0px;
             }
         }
+
+        /* QR Code and Description Layout */
+        .qr-description-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .qr-description-wrapper .fee-description {
+            flex: 1;
+        }
+
+        /* Mobile: QR code below description */
+        @media (max-width: 768px) {
+            .qr-description-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .qr-description-wrapper img {
+                order: 1;
+                margin-bottom: 10px;
+            }
+
+            .qr-description-wrapper .fee-description {
+                order: 2;
+            }
+        }
     </style>
 </head>
 <body>
@@ -549,21 +577,35 @@
         </div>
 
         <div class="two-column">
-       
+            <div>
+                <label data-i18n="fee_receipt">داخلہ فارم فیس کی رسید (اختیاری)</label>
+                <div class="qr-description-wrapper">
+        
+            <div class="fee-description" data-i18n="fee_desc">
+            داخلہ فارم کی فیس 200 روپے ہے۔ براہ کرم ارسال کردہ رقم کی تصویر اپلوڈ کریں۔ <br>
+            (ایزی پیسہ اکاؤنٹ: PK55TMFB0000000034125014)
+        </div>
+
+        <img src="qrcode.jpeg" alt="QR Code" style="width:120px;">
+        
+    </div>
+                <input type="file" name="فیس_رسید" accept="image/*">
+            </div>
             <div>
                 <label>
                 <span data-i18n="kashf_file">دورہ حدیث کے کشف الدرجات کی فائل اپلوڈ</span>
                 <span class="required">*</span>
-                </label>
+                </label>                
                 <input type="file" id="file" name="کشف_الدرجات" required>
             </div>
         </div>
-        <div class="warning-note">
-                             نوٹ: 70٪ سےاوپرتقدیروالے فضلائے کرام یہ فارم جمع کروائیں،بصورت دیگر میرٹ پر نہ آنے کی صورت میں ادارہ ذمہ دار نہیں ہوگا۔
+        
+        <div class="warning-note" data-i18n="warning_note">
+            نوٹ: صرف 70% سے زیادہ تقدیر والے فضلائے کرام یہ فارم جمع کروائیں، میرٹ پر نہ آنے کی صورت میں ادارہ ذمہ دار نہیں ہوگا۔
         </div>
-    
+        
         <button type="submit" class="submit-btn" id="submitBtn">
-            <span id="btnText" data-i18n="submit_btn">فارم جمع کریں</span>
+        <span id="btnText" data-i18n="submit_btn">فارم جمع کریں</span>
             <div id="btnSpinner" class="spinner" style="display: none;"></div>
         </button>
     </form>
@@ -612,10 +654,10 @@
             skill_naat: 'نعت',
             skill_taqrir: 'تقریر',
             skill_it: 'IT',
-            fee_receipt: 'داخلہ فارم فیس کی رسید',
+            fee_receipt: 'داخلہ فارم فیس کی رسید (اختیاری)',
             fee_desc: 'داخلہ فارم کی فیس 200 روپے ہے۔ارسال کردہ رقم کی تصویر اپلوڈ کریں۔ <br> ایزی پیسہ اکاؤنٹ: <br> PK55TMFB0000000034125014',
             kashf_file: 'دورہ حدیث کے کشف الدرجات کی فائل اپلوڈ',
-            warning_note: '  نوٹ: 70٪ سےاوپرتقدیروالے فضلائے کرام یہ فارم جمع کروائیں،بصورت دیگر میرٹ پر نہ آنے کی صورت میں ادارہ ذمہ دار نہیں ہوگا۔'
+            warning_note: 'نوٹ: صرف 70٪ سے زیادہ تقدیر والے فضلائے کرام یہ فارم جمع کروائیں، میرٹ پر نہ آنے کی صورت میں ادارہ ذمہ دار نہیں ہوگا۔',
             submit_btn: 'فارم جمع کریں',
             submitting: 'جمع کر رہا ہے...',
             success_text: 'فارم کامیابی سے جمع ہو گیا ہے،داخلہ امتحان کی تاریخ کا بعد میں اعلان کردیا جائے گا۔',
@@ -649,11 +691,11 @@
             skill_naat: 'Naat',
             skill_taqrir: 'Speech',
             skill_it: 'IT',
-            fee_receipt: 'Admission Form Fee Receipt',
+            fee_receipt: 'Admission Form Fee Receipt (Optional)',
             fee_desc: 'The admission form fee is 200 rupees. Upload the image of the sent amount. <br> EasyPaisa Account: <br> PK55TMFB0000000034125014',
             kashf_file: 'Upload Hadith Course Kashf al-Darajat File',
-            warning_note: 'Note: Candidates with a score above 70% should submit this form, otherwise the institution will not be responsible in case of not appearing on merit.'
             submit_btn: 'Submit Form',
+            warning_note: 'Note: Only distinguished scholars (70% or above) should submit this form, the institution will not be responsible for those who do not come on merit.',
             submitting: 'Submitting...',
             success_text: 'Form submitted successfully, admission exam date will be announced later.',
             success_sub: 'Join the institution\'s group via the link below, all information related to the exam will be provided in this group.<br><br><a href="https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u" target="_blank" style="color: red; text-align: center; font-size: 12px;">https://chat.whatsapp.com/FGaaHvZgESwKy07ZETdo2u</a><br><br><a><img src="https://static.wixstatic.com/media/2cd943_33c728c07ba04283a65eac05095363a9~mv2.jpeg" alt="WhatsApp Group QR Code" style="width: 180px; height: auto; border: 1px solid #ccc;"></a>',
@@ -686,10 +728,10 @@
             skill_naat: 'الإنشاد',
             skill_taqrir: 'الخطابة',
             skill_it: 'تكنولوجيا المعلومات',
-            fee_receipt: 'إيصال رسوم نموذج القبول',
+            fee_receipt: 'إيصال رسوم نموذج القبول (اختياري)',
             fee_desc: 'رسوم نموذج القبول 200 روبية. قم بتحميل صورة المبلغ المرسل. <br> حساب إيزي بايسا: <br> PK55TMFB0000000034125014',
             kashf_file: 'تحميل ملف كشف الدرجات لدورة الحديث',
-            warning_note: 'ملاحظة: يجب على المرشحين الحاصلين على درجة أعلى من 70% تقديم هذا النموذج، وإلا فلن تكون المؤسسة مسؤولة في حالة عدم الحضور على أساس الجدارة.'
+            warning_note: 'ملاحظة: يجب أن يقدم هذا النموذج العلماء المتميزون(70% أو الأكثر) فقط، المؤسسة غير مسؤولة عن الذين لا يأتون على أساس الجدارة.',
             submit_btn: 'تقديم النموذج',
             submitting: 'جارٍ التقديم...',
             success_text: 'تم تقديم النموذج بنجاح، سيتم الإعلان عن تاريخ امتحان القبول لاحقاً.',
@@ -792,62 +834,88 @@
         const feeReceiptFile = feeReceiptInput.files[0];
         const kashfFile = kashfInput.files[0];
 
-       
+        const formData = new FormData(form);
 
+        // Photo is required
+        if (!photoFile) {
+            alert("براہ کرم تصویر اپ لوڈ کریں / Please upload a photo");
+            submitBtn.disabled = false;
+            btnText.textContent = translations[currentLang].submit_btn;
+            btnSpinner.style.display = 'none';
+            return;
+        }
+
+        // Kashf file is required
+        if (!kashfFile) {
+            alert("براہ کرم کشف الدرجات کی فائل اپ لوڈ کریں / Please upload Kashf al-Darajat file");
+            submitBtn.disabled = false;
+            btnText.textContent = translations[currentLang].submit_btn;
+            btnSpinner.style.display = 'none';
+            return;
+        }
+
+        // Process photo (required)
         const readerPhoto = new FileReader();
-        const readerFee = new FileReader();
-        const readerKashf = new FileReader();
+        readerPhoto.onload = function(event) {
+            const photoData = event.target.result.split(',')[1];
+            formData.append("photo_data", photoData);
+            formData.append("photo_name", photoFile.name);
+            formData.append("photo_type", photoFile.type);
 
-        readerFee.onload = function(event) {
-            const feeData = event.target.result.split(',')[1];
+            // Process kashf file (required)
+            const readerKashf = new FileReader();
             readerKashf.onload = function(event) {
                 const kashfData = event.target.result.split(',')[1];
-                readerPhoto.onload = function(event) {
-                    const photoData = event.target.result.split(',')[1];
+                formData.append("file_data", kashfData);
+                formData.append("file_name", kashfFile.name);
+                formData.append("file_type", kashfFile.type);
 
-                    const formData = new FormData(form);
-                    formData.append("fee_receipt_data", feeData);
-                    formData.append("fee_receipt_name", feeReceiptFile.name);
-                    formData.append("fee_receipt_type", feeReceiptFile.type);
-
-                    formData.append("file_data", kashfData);
-                    formData.append("file_name", kashfFile.name);
-                    formData.append("file_type", kashfFile.type);
-
-                    formData.append("photo_data", photoData);
-                    formData.append("photo_name", photoFile.name);
-                    formData.append("photo_type", photoFile.type);
-
-                    fetch(scriptURL, { method: 'POST', body: formData })
-                    .then(res => res.json())
-                    .then(response => {
-                        if(response.success){
-                            form.style.display = "none";
-                            submittedMessage.style.display = "block";
-                            submittedMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        } else {
-                            throw new Error(response.message);
-                        }
-                    })
-                    .catch(err => {
-                        alert("غلطی: " + err.message);
-                        submitBtn.disabled = false;
-                        btnText.textContent = translations[currentLang].submit_btn;
-                        btnSpinner.style.display = 'none';
-                    });
-
-                };
-                readerPhoto.readAsDataURL(photoFile);
+                // Process fee receipt (optional)
+                if (feeReceiptFile) {
+                    const readerFee = new FileReader();
+                    readerFee.onload = function(event) {
+                        const feeData = event.target.result.split(',')[1];
+                        formData.append("fee_receipt_data", feeData);
+                        formData.append("fee_receipt_name", feeReceiptFile.name);
+                        formData.append("fee_receipt_type", feeReceiptFile.type);
+                        
+                        // Submit form with all files
+                        submitForm(formData);
+                    };
+                    readerFee.readAsDataURL(feeReceiptFile);
+                } else {
+                    // No fee receipt, submit form without it
+                    submitForm(formData);
+                }
             };
             readerKashf.readAsDataURL(kashfFile);
         };
-        readerFee.readAsDataURL(feeReceiptFile);
+        readerPhoto.readAsDataURL(photoFile);
+
+        function submitForm(formData) {
+            fetch(scriptURL, { method: 'POST', body: formData })
+            .then(res => res.json())
+            .then(response => {
+                if(response.success){
+                    form.style.display = "none";
+                    submittedMessage.style.display = "block";
+                    submittedMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    throw new Error(response.message || "Unknown error");
+                }
+            })
+            .catch(err => {
+                alert("غلطی: " + err.message);
+                submitBtn.disabled = false;
+                btnText.textContent = translations[currentLang].submit_btn;
+                btnSpinner.style.display = 'none';
+            });
+        }
     });
 
-   document.getElementById('newFormBtn').addEventListener('click', function() {
-    window.location.reload(); // یہ موجودہ پیج کو reload کرے گا
-});
-
+    document.getElementById('newFormBtn').addEventListener('click', function() {
+        window.location.reload();
+    });
 
     backBtn.addEventListener('click', function() {
         window.location.href = 'index.html';
@@ -855,12 +923,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
